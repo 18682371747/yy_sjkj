@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://www.dybc.com.cn/ -->
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="keywords" content="岳阳映像设计空间">
+    <meta name="description" content="岳阳映像设计空间">
+    <link rel="icon" type="image/png" href="http://www.dybc.com.cn/img/favicon.png">
+    <link href="./resource/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="./resource/css/base.css" rel="stylesheet" type="text/css">
+    <link href="./resource/css/main.css" rel="stylesheet" type="text/css">
+    <link href="./resource/css/style.css" rel="stylesheet" media="screen">
+
+    <script type="text/javascript" src="./resource/js/hm.js"></script>
+    <script type="text/javascript" src="./resource/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./resource/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./resource/js/vue.min.js"></script>
+
+    <title>映像设计空间</title>
+    <style>
+        .footer-list {
+            overflow: hidden;
+        }
+
+        .footer-list li {
+            float: left;
+            width: 50%;
+            /*margin-right: 10px;*/
+        }
+
+        .about li {
+            width: 50%;
+        }
+
+        span.ismfcolor-mianfei {
+            float: right;
+            color: #fff;
+            font-weight: 500;
+            background: rgb(20, 199, 121);
+            border-radius: 5px;
+            padding: 0px 10px;
+        }
+
+        span.ismfcolor-huiyuan {
+            float: right;
+            color: #fff;
+            font-weight: 500;
+            background: #f0ad4e;
+            border-radius: 5px;
+            padding: 0px 10px;
+        }
+
+        .cc-mask {
+            background: rgba(0, 0, 0, .4);
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: all .3s ease 0s;
+            width: 100%;
+            transition: .3s;
+            -webkit-transition: .3s;
+        }
+
+        .cc-mask .c-btn-1 {
+            left: 50%;
+            margin-left: -72px;
+            margin-top: -16px;
+            position: absolute;
+            top: 100%;
+            transition: .3s;
+            -webkit-transition: .3s
+        }
+
+        .pack:hover .cc-mask {
+            opacity: 1;
+            filter: alpha( opacity=100)
+        }
+
+        .pack:hover img {
+            transform: scale(1.1);
+            -webkit-transform: scale(1.1)
+        }
+
+        .img-responsive {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            transition: .8s;
+            -webkit-transition: .8s
+        }
+
+        .pack:hover .cc-mask .c-btn-1 {
+            top: 50%
+        }
+
+        .c-btn-1 {
+            border-color: #fff;
+            color: #fff;
+            width: 120px;
+            font-size: 18px;
+        }
+
+        .comm-btn {
+            padding: 0 8px;
+            border: 1px solid;
+            border-radius: 16px;
+            display: inline-block;
+            text-align: center;
+            height: 32px;
+            line-height: 32px;
+        }
+
+        .comm-title {
+            overflow: hidden;
+            clear: both;
+            margin: 40px 0 30px;
+        }
+
+        .tac {
+            text-align: center;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        h2 {
+            font-size: 24px;
+            line-height: 30px;
+            font-weight: normal;
+        }
+
+        .c-s-dl dl {
+            border-bottom: 1px dotted #ddd;
+            line-height: 30px
+        }
+
+        .c-s-dl dl dt {
+            float: left;
+            width: 75px;
+            text-align: right;
+            padding-right: 15px
+        }
+
+        .c-s-dl dl {
+            position: relative;
+            padding: 15px 60px 0 0
+        }
+
+        .c-s-dl-li {
+            padding-left: 90px
+        }
+
+        .c-s-dl-li ul {
+            overflow: hidden
+        }
+
+        .c-s-dl-li ul li {
+            float: left;
+            margin: 0 15px 9px 0
+        }
+
+        .c-s-dl-li ul li a {
+            display: inline-block;
+            color: #666;
+            font-size: 14px;
+            padding: 0 10px
+        }
+
+        .c-s-dl dl ul li a:hover,
+        .c-s-dl-li ul li.current a {
+            color: #12c287;
+            text-decoration: none
+        }
+
+        .c-sort-box {
+            border-top: 1px solid #e2e2e2;
+            margin-top: -15px
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div id="app">
+        <header id="header" class="navbar brand-color navbar-inverse fixed-header-layout" role="navigation">
+            <div class="container">
+                <div class="col-xs-12 col-md-12" style="padding-left: 0px;padding-right: 0px;">
+                    <div class="navbar-header">
+                        <div class="col-md-2" style="width:12.5%;padding-left: 0px;">
+                            <a class="" href="">
+                                <img class="logo logo-visible v-middle" src="./resource/images/logo.png" alt="东翌编程logo" title="东翌编程logo">
+                            </a>
+                        </div>
+                        <div class="col-md-7" id="h_n_min" style="width:52.5%;">
+                            <nav class="collapse navbar-collapse f-right" style="float:left;">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a class="color-w link1" href="index.html">首页</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="color-w" href="showcoulist.html">课程中心</a>
+                                    </li>
+                                    <li>
+                                        <a class="color-w" href="lecturer.html">师资力量</a>
+                                    </li>
+                                    <li>
+                                        <a class="color-w" target="_blank" href="">就业平台</a>
+                                    </li>
+                                    <li>
+                                        <a class="color-w" target="_blank" href="about.html">关于我们</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-md-4" style="width:35%;padding-right: 0px;">
+                            <nav class="collapse navbar-collapse f-right">
+                                <ul class="nav navbar-nav" style="margin-right: 0px;">
+
+                                    <li style="margin-right: 0px;">
+                                        <a class="color-w" href="">登录</a>
+                                    </li>
+                                    <li style="margin-right: 0px;">
+                                        <a class="color-w" href="">注册</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <div id="shadow1" style="display:none;"></div>
+        <div id="ie">
+            <h3>浏览器版本太低。</h3>
+            <p>去下载世界上最快的浏览器
+                <a target="_blank" href="https://www.baidu.com/s?wd=google%E6%B5%8F%E8%A7%88%E5%99%A8&amp;rsv_spt=1&amp;rsv_iqid=0x81192ebc00005b28&amp;issp=1&amp;f=3&amp;rsv_bp=0&amp;rsv_idx=2&amp;ie=utf-8&amp;tn=baiduhome_pg&amp;rsv_enter=1&amp;rsv_sug3=3&amp;rsv_sug1=3&amp;rsv_sug7=100&amp;rsv_t=b29ex8teL5s0Bb9Kx%2FT2Fpov5mhzbvDsWf2kykKep9Wt4wpIVrTYussgwNTD0JrqVhC5&amp;rsv_sug2=0&amp;prefixsug=goo&amp;rsp=3&amp;inputT=2374&amp;rsv_sug4=2375">谷歌浏览器</a>
+            </p>
+        </div>
+
+        <div class="mp-container">
+
+            <section>
+                <div class="shizhan-header-nav1">
+                    <div class="clearfix">
+                        <header class="comm-title">
+                            <h2 class="fl tac">
+                                <span class="c-333">全部课程</span>
+                            </h2>
+                        </header>
+                        <section class="c-sort-box">
+                            <section class="c-s-dl">
+                                <dl>
+                                    <dt>
+                                        <span class="c-999 fsize14">按课程</span>
+                                    </dt>
+                                    <dd class="c-s-dl-li">
+                                        <ul class="clearfix">
+                                            <li @click="getData({menu:'ALL'})" :class="selectMenu == '' ? 'current' : ''">
+                                                <a href="javascript:void(0)">全部</a>
+                                            </li>
+                                            <li @click="getData({menu:'3DMAX'})" :class="selectMenu == '3DMAX' ? 'current' : ''">
+                                                <a href="javascript:void(0)">3DMAX</a>
+                                            </li>
+                                            <li @click="getData({menu:'CAD'})" :class="selectMenu == 'CAD' ? 'current' : ''">
+                                                <a href="javascript:void(0)">CAD</a>
+                                            </li>
+                                        </ul>
+
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        <span class="c-999 fsize14">按讲师</span>
+                                    </dt>
+                                    <dd class="c-s-dl-li">
+                                        <ul class="clearfix">
+                                            <li @click="getData({teacher:'ALL'})" :class="selectTeacher == '' ? 'current' : ''">
+                                                <a href="javascript:void(0)">全部</a>
+                                            </li>
+                                            <li @click="getData({teacher:'余胜军'})" :class="selectTeacher == '余胜军' ? 'current' : ''">
+                                                <a href="javascript:void(0)">余胜军</a>
+                                            </li>
+                                            <li @click="getData({teacher:'邹安旭'})" :class="selectTeacher == '邹安旭' ? 'current' : ''">
+                                                <a href="javascript:void(0)">邹安旭</a>
+                                            </li>
+                                        </ul>
+                                        <aside class="c-s-more">
+                                            <a href="javascript: void(0)" title="" class="fsize14 c-master" style="display: none;">[展开]</a>
+                                        </aside>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        <span class="c-999 fsize14">按类型</span>
+                                    </dt>
+                                    <dd class="c-s-dl-li">
+                                        <ul class="clearfix">
+                                            <li @click="getData({type:'ALL'})" :class="selectType == '' ? 'current' : ''">
+                                                <a href="javascript:void(0)">全部</a>
+                                            </li>
+                                            <li @click="getData({type:'public'})" :class="selectType == '0' ? 'current' : ''">
+                                                <a href="javascript:void(0)">免费</a>
+                                            </li>
+                                            <li @click="getData({type:'private'})" :class="selectType == '1' ? 'current' : ''">
+                                                <a href="javascript:void(0)">会员</a>
+                                            </li>
+                                        </ul>
+                                        <aside class="c-s-more">
+                                            <a href="javascript: void(0)" title="" class="fsize14 c-master" style="display: none;">[展开]</a>
+                                        </aside>
+                                    </dd>
+                                </dl>
+                                <div class="clear"></div>
+                            </section>
+
+                        </section>
+                    </div>
+                </div>
+            </section>
+
+            <section class="p-layout">
+                <div class="container">
+                    <div class="col-lg-12">
+                        <h1 class="page-title" style="padding: 20px 0;font-size: 22px;letter-spacing:0.5px;font-weight: 600;"></h1>
+                    </div>
+                </div>
+                <div class="container price-table-container row row-nt" style="padding-bottom: 50px;">
+                    <div class="col-xs-12 col-md-4 col-lg-3 col-adm" v-for="item in showItems">
+                        <div class="i-wrap align-center pack clearfix" style="background: #fff;">
+                            <img src="./resource/images/3DMAX.png" class="img-responsive" style="width:100%;height: 200px;" :alt="item.name" :title="item.name">
+                            <div style="position: relative;top:-6px;">
+                                <div class="pt-features" style="padding-top: 15px;padding-bottom: 11px;">
+                                    <ul>
+                                        <li>
+                                            <strong v-text="item.name"></strong>
+                                        </li>
+                                        <li class="a">
+                                            <span v-text="item.llcs+'浏览'"></span>
+                                            <span :class="item.isSF=='public' ? 'ismfcolor-mianfei' : 'ismfcolor-huiyuan'" v-text="item.isSF=='public' ? '免费' : '会员'"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cc-mask">
+                                <a :href="'showVideo.html?url='+item.url" title="" class="comm-btn c-btn-1">开始学习</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </section>
+
+        </div>
+
+
+
+        <footer id="footer" class="footer b-top">
+            <div class="copyright">
+                <span class="color-light">Copyright © 2018&nbsp;
+                    <a href="">长沙融聚文化有限公司</a>&nbsp;版权所有 湘ICP备XXX号.</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+
+        $(function () {
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    restUrl: 'http://183.215.12.97:8884/slowbuy',
+                    selectTeacher: '',
+                    selectType: '',
+                    selectMenu: '',
+                    showItems: [],
+                    items: [{
+                        name: '003Premiere Pro CC基本操作',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
+                        isSF:'public',
+                        menu: '3DMAX',
+                        teacher: '余胜军',
+                        llcs: '1128'
+                    }, {
+                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
+                        isSF:'public',
+                        menu: '3DMAX',
+                        teacher: '余胜军',
+                        llcs: '1128'
+                    }, {
+                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
+                        isSF:'private',
+                        menu: '3DMAX',
+                        teacher: '余胜军',
+                        llcs: '1128'
+                    }, {
+                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
+                        isSF:'public',
+                        menu: '3DMAX',
+                        teacher: '余胜军',
+                        llcs: '1128'
+                    }, {
+                        name: '003Premiere Pro CC基本操作',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
+                        isSF:'public',
+                        menu: '3DMAX',
+                        teacher: '余胜军',
+                        llcs: '1128'
+                    }, {
+                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
+                        isSF:'public',
+                        menu: '3DMAX',
+                        teacher: '余胜军',
+                        llcs: '1128'
+                    }, {
+                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
+                        isSF:'public',
+                        menu: 'CAD',
+                        teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
+                        isSF:'public',
+                        menu: 'CAD',
+                        teacher: '余胜军',
+                        llcs: '1128'
+                    }, {
+                        name: '003Premiere Pro CC基本操作',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
+                        isSF:'public',
+                        menu: 'CAD',
+                        teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '003Premiere Pro CC基本操作',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '003Premiere Pro CC基本操作',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '003Premiere Pro CC基本操作',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '003Premiere Pro CC基本操作',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }, {
+                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
+                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
+                        isSF:'public',
+                        menu: 'CAD', teacher: '邹安旭',
+                        llcs: '1128'
+                    }]
+                },
+                methods: {
+                    getData: function (param) {
+                        var me = this;
+                        
+                        if (param) {
+                            if (param.type) {
+                                param.type =='ALL' ? me.selectType = '' : me.selectType = param.type; 
+                            } else if (param.teacher) {
+                                param.teacher =='ALL' ? me.selectTeacher = '' : me.selectTeacher = param.teacher;
+                            } else if (param.menu) {
+                                param.menu =='ALL' ? me.selectMenu = '' : me.selectMenu = param.menu; 
+                            }
+                        }
+                        if(me.selectMenu && me.selectTeacher && me.selectType){
+                            me.showItems = me.items.filter(function(item){
+                                return item.menu == me.selectMenu && item.teacher == me.selectTeacher && item.isSF == me.selectType;
+                            })
+                        }else if(me.selectMenu && me.selectTeacher){
+                            me.showItems = me.items.filter(function(item){
+                                return item.menu == me.selectMenu && item.teacher == me.selectTeacher;
+                            })
+                        }else if(me.selectMenu && me.selectType){
+                            me.showItems = me.items.filter(function(item){
+                                return item.menu == me.selectMenu && item.isSF == me.selectType;
+                            })
+                        }else if(me.selectTeacher && me.selectType){
+                            me.showItems = me.items.filter(function(item){
+                                return item.teacher == me.selectTeacher && item.isSF == me.selectType;
+                            })
+                        }else if(me.selectMenu){
+                            me.showItems = me.items.filter(function(item){
+                                return item.menu == me.selectMenu;
+                            })
+                        }else if(me.selectTeacher){
+                            me.showItems = me.items.filter(function(item){
+                                return item.teacher == me.selectTeacher;
+                            })
+                        }else if(me.selectType){
+                            me.showItems = me.items.filter(function(item){
+                                return item.isSF == me.selectType;
+                            })
+                        }else{
+                            me.showItems = me.items;
+                        }
+
+
+                    },
+                    isIE: function () {
+                        //判断浏览器
+                        var browser = navigator.appName;
+                        if (browser == "Microsoft Internet Explorer") {
+                            var b_version = navigator.appVersion;
+                            var version = b_version.split(";");
+                            var trim_Version = version[1].replace(/[ ]/g, "");
+                            if (trim_Version == "MSIE6.0" || trim_Version == "MSIE7.0" || trim_Version == "MSIE8.0" || trim_Version == "MSIE9.0") {
+                                document.getElementById('ie').style.display = 'block';
+                                document.getElementById('shadow1').style.display = 'block';
+                            }
+                        }
+                    },
+                    openWin: function (url, text, winInfo) {
+                        var winObj = window.open(url, text, winInfo);
+                        var loop = setInterval(function () {
+                            if (winObj.closed) {
+                                clearInterval(loop);
+                                //alert('closed');      
+                                parent.location.reload();
+                            }
+                        }, 1);
+                    }
+                },
+                mounted: function () {
+                    this.isIE();
+                    this.getData();
+
+                }
+            });
+        });
+
+    </script>
+
+
+</body>
+
+</html>

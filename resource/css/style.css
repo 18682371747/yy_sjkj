@@ -1,0 +1,184 @@
+/* =============================================================================
+   HTML5 CSS Reset Minified - Eric Meyer
+   ========================================================================== */
+
+/*html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}*/
+/*body{line-height:1}*/
+/*article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}*/
+/*nav ul{list-style:none}*/
+/*blockquote,q{quotes:none}*/
+/*blockquote:before,blockquote:after,q:before,q:after{content:none}*/
+/*!*a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}*!*/
+/*mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}*/
+/*del{text-decoration:line-through}*/
+/*abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}*/
+/*table{border-collapse:collapse;border-spacing:0}*/
+/*hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}*/
+/*input,select{vertical-align:middle}*/
+/*li{list-style:none}*/
+
+
+/* =============================================================================
+   My CSS
+   ========================================================================== */
+
+/* ---- base ---- */
+
+/*html,body{ width: 100%; height: 100%;  }*/
+
+html{
+  /*-webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
+}
+
+body{
+  /*font:normal 75% Arial, Helvetica, sans-serif;*/
+}
+
+canvas{
+  display:block;
+  vertical-align:bottom;
+}
+
+
+/* ---- stats.js ---- */
+
+.count-particles{
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13E8E9;
+  font-size: .8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.js-count-particles{
+  font-size: 1.1em;
+}
+
+#stats,
+.count-particles{
+  -webkit-user-select: none;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#stats{
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+
+.count-particles{
+  border-radius: 0 0 3px 3px;
+}
+
+
+/* ---- particles.js container ---- */
+
+#particles-js{ width: 100%; height: 100%;
+  /*opacity: 0.3;*/
+  /*background-color: #002B5A; */
+  /*background-image: url('');*/
+  background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;
+}
+.particles-js-canvas-el{
+  position: absolute;
+  top:0px;
+  left:0px;
+  z-index: 9;
+  opacity: 0.2;
+}
+#shadow {
+  width: 100%;
+  height: 100%;
+  top:0px;
+  left:0px;
+  z-index: 9999;
+  position: absolute;
+}
+
+@media screen and (max-width: 1200px) {
+  .shizhan-header-nav {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+	.shizhan-header-nav {
+    height: 72px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 16px 0 rgba(28, 31, 33, 0.1);
+    padding: 16px 0;
+    box-sizing: border-box;
+  }
+  .shizhan-header-nav > div {
+    width: 1152px;
+    padding-left: 12px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .shizhan-header-nav a {
+    float: left;
+    font-size: 16px;
+    color: #07111B;
+    line-height: 40px;
+    height: 40px;
+    position: relative;
+    margin-right: 48px;
+    font-weight: bold;
+  }
+  .shizhan-header-nav a:last-child {
+    margin-right: 0;
+  }
+  .shizhan-header-nav a:hover {
+    color: #F01414;
+  }
+  .shizhan-header-nav a.cur {
+    color: #F01414;
+  }
+  .shizhan-header-nav a.cur:before {
+    display: block;
+  }
+  .shizhan-header-nav a:before {
+    display: none;
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    background: #F01414;
+    width: 16px;
+    height: 3px;
+    left: 50%;
+    margin-left: -8px;
+  }
+ }
+
+ @media screen and (max-width: 1200px) {
+  
+}
+
+ @media screen and (min-width: 1200px) {
+  .shizhan-header-nav1 .c-s-dl-li .clearfix{
+    height: 40px;
+  }
+	.shizhan-header-nav1 {
+    background: #f7f8fa;
+    box-shadow: 0 8px 16px 0 rgba(28, 31, 33, 0.1);
+    padding: 16px 0;
+    box-sizing: border-box;
+  }
+  .shizhan-header-nav1 > div {
+    width: 1152px;
+    padding-left: 12px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+ }

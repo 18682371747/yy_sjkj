@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="keywords" content="岳阳映像设计空间">
+    <meta name="description" content="岳阳映像设计空间">
+    <link rel="icon" type="image/png" href="http://www.dybc.com.cn/img/favicon.png">
+    <link href="./resource/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="./resource/js/vue.min.js"></script>
+
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+        }
+
+        body {
+            display: block;
+            margin: 8px;
+        }
+
+        video {
+            max-height: 100%;
+            max-width: 100%;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            margin: auto;
+        }
+
+        video {
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <video controls="true" controlslist="nodownload" autoplay="" name="media" poster="./resource/images/video_bg.png">
+            <source :src="url" type="video/mp4">
+        </video>
+    </div>
+</body>
+<script>
+    (function () {
+        var app = new Vue({
+            el: '#app',
+            data: {
+                url:'',
+            },
+            methods: {
+                getData: function (callback) {
+                    var me = this;
+                    // $.ajax({
+                    //     type: "get",
+                    //     url: me.restUrl + "/first/getImgBanner",//获取大图5小图10广告信息
+                    //     dataType: "jsonp",
+                    //     async: false,
+                    //     data: {},
+                    //     success: function (data) {
+
+                    //         callback && setTimeout(callback, 1500);
+                    //     }
+                    // });
+                },
+                getRequest: function () {
+                    var url = location.search; //获取url中"?"符后的字串   
+                    var theRequest = new Object();
+                    if (url.indexOf("?") != -1) {
+                        var str = url.substr(1);
+                        strs = str.split("&");
+                        for (var i = 0; i < strs.length; i++) {
+                            theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+                        }
+                    }
+                    return theRequest;
+                }
+            },
+            mounted: function () {
+                this.url = this.getRequest().url;
+            }
+        });
+    })();
+</script>
+
+</html>
