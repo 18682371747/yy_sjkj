@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0023)http://www.dybc.com.cn/ -->
 <html lang="zh-CN">
 
 <head>
@@ -8,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="keywords" content="岳阳映像设计空间">
     <meta name="description" content="岳阳映像设计空间">
-    <link rel="icon" type="image/png" href="http://www.dybc.com.cn/img/favicon.png">
+    <link rel="icon" type="image/png" href="favicon.ico">
     <link href="./resource/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="./resource/css/base.css" rel="stylesheet" type="text/css">
     <link href="./resource/css/main.css" rel="stylesheet" type="text/css">
     <link href="./resource/css/style.css" rel="stylesheet" media="screen">
 
-    <script type="text/javascript" src="./resource/js/hm.js"></script>
     <script type="text/javascript" src="./resource/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./resource/js/paging.js"></script>
     <script type="text/javascript" src="./resource/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./resource/js/vue.min.js"></script>
 
@@ -184,6 +183,67 @@
             border-top: 1px solid #e2e2e2;
             margin-top: -15px
         }
+
+        .page_div {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            font-family: "microsoft yahei";
+            color: #666666;
+            margin-right: 10px;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+
+        /*
+        * 页数按钮样式
+        */
+
+        .page_div a {
+            min-width: 30px;
+            height: 28px;
+            border: 1px solid #dce0e0!important;
+            text-align: center;
+            margin: 0 4px;
+            cursor: pointer;
+            line-height: 28px;
+            color: #666666;
+            font-size: 13px;
+            display: inline-block;
+            border-radius: 3px;
+        }
+
+        #firstPage,
+        #lastPage {
+            width: 50px;
+            color: #0073A9;
+            border: 1px solid #0073A9!important;
+            border-radius: 3px;
+        }
+
+        #prePage,
+        #nextPage {
+            width: 70px;
+            color: #0073A9;
+            border: 1px solid #0073A9!important;
+            border-radius: 3px;
+        }
+
+        .page_div .current {
+            background-color: #0073A9;
+            border-color: #0073A9;
+            color: #FFFFFF;
+        }
+
+        .totalPages {
+            margin: 0 10px;
+        }
+
+        .totalPages span,
+        .totalSize span {
+            color: #0073A9;
+            margin: 0 5px;
+        }
     </style>
 
 
@@ -197,9 +257,10 @@
                     <div class="navbar-header">
                         <div class="col-md-2" style="width:12.5%;padding-left: 0px;">
                             <a class="" href="">
-                                <img class="logo logo-visible v-middle" src="./resource/images/logo.png" alt="东翌编程logo" title="东翌编程logo">
+                                <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.png" alt="东翌编程logo" title="东翌编程logo">
                             </a>
                         </div>
+                        <!-- 头部菜单start -->
                         <div class="col-md-7" id="h_n_min" style="width:52.5%;">
                             <nav class="collapse navbar-collapse f-right" style="float:left;">
                                 <ul class="nav navbar-nav">
@@ -214,29 +275,32 @@
                                         <a class="color-w" href="lecturer.html">师资力量</a>
                                     </li>
                                     <li>
-                                        <a class="color-w" target="_blank" href="">就业平台</a>
+                                        <a class="color-w" href="platform.html">就业平台</a>
                                     </li>
                                     <li>
-                                        <a class="color-w" target="_blank" href="about.html">关于我们</a>
+                                        <a class="color-w" href="about.html">关于我们</a>
                                     </li>
                                 </ul>
                             </nav>
                         </div>
+                        <!-- 头部菜单end -->
                         <div class="col-md-4" style="width:35%;padding-right: 0px;">
                             <nav class="collapse navbar-collapse f-right">
                                 <ul class="nav navbar-nav" style="margin-right: 0px;">
 
                                     <li style="margin-right: 0px;">
-                                        <a class="color-w" href="">登录</a>
+                                        <a class="color-w" style="color:#666;" v-text="userName" v-if="userName"></a>
+                                        <a class="color-w" href="login.html" v-else>登录</a>
                                     </li>
                                     <li style="margin-right: 0px;">
-                                        <a class="color-w" href="">注册</a>
+                                        <a class="color-w" href="" style="color:#666;" @click="quit" v-if="userName">注销</a>
+                                        <a class="color-w" href="register.html" v-else>注册</a>
                                     </li>
                                 </ul>
                             </nav>
                         </div>
 
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
+                        <button courseTypeName="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -275,53 +339,48 @@
                                     </dt>
                                     <dd class="c-s-dl-li">
                                         <ul class="clearfix">
-                                            <li @click="getData({menu:'ALL'})" :class="selectMenu == '' ? 'current' : ''">
+                                            <li @click="getData({courseType:'ALL'})" :class="selectCourseType == '' ? 'current' : ''">
                                                 <a href="javascript:void(0)">全部</a>
                                             </li>
-                                            <li @click="getData({menu:'3DMAX'})" :class="selectMenu == '3DMAX' ? 'current' : ''">
-                                                <a href="javascript:void(0)">3DMAX</a>
+                                            <li v-for="item in couserTypeItems" @click="getData({courseType:item.id})" :class="selectCourseType == item.id ? 'current' : ''">
+                                                <a href="javascript:void(0)" v-text="item.comnValue"></a>
                                             </li>
-                                            <li @click="getData({menu:'CAD'})" :class="selectMenu == 'CAD' ? 'current' : ''">
-                                                <a href="javascript:void(0)">CAD</a>
-                                            </li>
+
                                         </ul>
 
                                     </dd>
                                 </dl>
-                                <dl>
+                                <!-- <dl>
                                     <dt>
                                         <span class="c-999 fsize14">按讲师</span>
                                     </dt>
                                     <dd class="c-s-dl-li">
                                         <ul class="clearfix">
-                                            <li @click="getData({teacher:'ALL'})" :class="selectTeacher == '' ? 'current' : ''">
+                                            <li @click="getData({courseTeacher:'ALL'})" :class="selectCourseTeacher == '' ? 'current' : ''">
                                                 <a href="javascript:void(0)">全部</a>
                                             </li>
-                                            <li @click="getData({teacher:'余胜军'})" :class="selectTeacher == '余胜军' ? 'current' : ''">
-                                                <a href="javascript:void(0)">余胜军</a>
-                                            </li>
-                                            <li @click="getData({teacher:'邹安旭'})" :class="selectTeacher == '邹安旭' ? 'current' : ''">
-                                                <a href="javascript:void(0)">邹安旭</a>
+                                            <li v-for="item in couserTeacherItems" @click="getData({courseTeacher:item.id})" :class="selectCourseTeacher == item.id ? 'current' : ''">
+                                                <a href="javascript:void(0)" v-text="item.teacherName"></a>
                                             </li>
                                         </ul>
                                         <aside class="c-s-more">
                                             <a href="javascript: void(0)" title="" class="fsize14 c-master" style="display: none;">[展开]</a>
                                         </aside>
                                     </dd>
-                                </dl>
+                                </dl> -->
                                 <dl>
                                     <dt>
                                         <span class="c-999 fsize14">按类型</span>
                                     </dt>
                                     <dd class="c-s-dl-li">
                                         <ul class="clearfix">
-                                            <li @click="getData({type:'ALL'})" :class="selectType == '' ? 'current' : ''">
+                                            <li @click="getData({isCharge:'ALL'})" :class="selectIsCharge == '' ? 'current' : ''">
                                                 <a href="javascript:void(0)">全部</a>
                                             </li>
-                                            <li @click="getData({type:'public'})" :class="selectType == '0' ? 'current' : ''">
+                                            <li @click="getData({isCharge:'2'})" :class="selectIsCharge == '2' ? 'current' : ''">
                                                 <a href="javascript:void(0)">免费</a>
                                             </li>
-                                            <li @click="getData({type:'private'})" :class="selectType == '1' ? 'current' : ''">
+                                            <li @click="getData({isCharge:'1'})" :class="selectIsCharge == '1' ? 'current' : ''">
                                                 <a href="javascript:void(0)">会员</a>
                                             </li>
                                         </ul>
@@ -345,25 +404,30 @@
                     </div>
                 </div>
                 <div class="container price-table-container row row-nt" style="padding-bottom: 50px;">
-                    <div class="col-xs-12 col-md-4 col-lg-3 col-adm" v-for="item in showItems">
+                    <div class="col-xs-12 col-md-4 col-lg-3 col-adm" v-for="item in items">
                         <div class="i-wrap align-center pack clearfix" style="background: #fff;">
-                            <img src="./resource/images/3DMAX.png" class="img-responsive" style="width:100%;height: 200px;" :alt="item.name" :title="item.name">
+                            <img src="./resource/images/3DMAX.png" class="img-responsive" style="width:100%;height: 200px;" :alt="item.courseName" :title="item.courseName">
                             <div style="position: relative;top:-6px;">
                                 <div class="pt-features" style="padding-top: 15px;padding-bottom: 11px;">
                                     <ul>
                                         <li>
-                                            <strong v-text="item.name"></strong>
+                                            <strong v-text="item.courseName"></strong>
                                         </li>
                                         <li class="a">
-                                            <span v-text="item.llcs+'浏览'"></span>
-                                            <span :class="item.isSF=='public' ? 'ismfcolor-mianfei' : 'ismfcolor-huiyuan'" v-text="item.isSF=='public' ? '免费' : '会员'"></span>
+                                            <span v-text="item.visNum+'浏览'"></span>
+                                            <span :class="item.isCharge=='2' ? 'ismfcolor-mianfei' : 'ismfcolor-huiyuan'" v-text="item.isCharge=='2' ? '免费' : '会员'"></span>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="cc-mask">
-                                <a :href="'showVideo.html?url='+item.url" title="" class="comm-btn c-btn-1">开始学习</a>
+                                <a :href="'showVideo.html?id='+item.id" target="_blank" title="" class="comm-btn c-btn-1">开始学习</a>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-12 col-lg-12 col-adm">
+                        <div class="PageProgram">
+                            <div id="page" class="page_div"></div>
                         </div>
                     </div>
 
@@ -390,234 +454,79 @@
             var app = new Vue({
                 el: '#app',
                 data: {
-                    restUrl: 'http://183.215.12.97:8884/slowbuy',
-                    selectTeacher: '',
-                    selectType: '',
-                    selectMenu: '',
-                    showItems: [],
-                    items: [{
-                        name: '003Premiere Pro CC基本操作',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
-                        isSF:'public',
-                        menu: '3DMAX',
-                        teacher: '余胜军',
-                        llcs: '1128'
-                    }, {
-                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
-                        isSF:'public',
-                        menu: '3DMAX',
-                        teacher: '余胜军',
-                        llcs: '1128'
-                    }, {
-                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
-                        isSF:'private',
-                        menu: '3DMAX',
-                        teacher: '余胜军',
-                        llcs: '1128'
-                    }, {
-                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
-                        isSF:'public',
-                        menu: '3DMAX',
-                        teacher: '余胜军',
-                        llcs: '1128'
-                    }, {
-                        name: '003Premiere Pro CC基本操作',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
-                        isSF:'public',
-                        menu: '3DMAX',
-                        teacher: '余胜军',
-                        llcs: '1128'
-                    }, {
-                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
-                        isSF:'public',
-                        menu: '3DMAX',
-                        teacher: '余胜军',
-                        llcs: '1128'
-                    }, {
-                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
-                        isSF:'public',
-                        menu: 'CAD',
-                        teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
-                        isSF:'public',
-                        menu: 'CAD',
-                        teacher: '余胜军',
-                        llcs: '1128'
-                    }, {
-                        name: '003Premiere Pro CC基本操作',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
-                        isSF:'public',
-                        menu: 'CAD',
-                        teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '003Premiere Pro CC基本操作',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '003Premiere Pro CC基本操作',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '003Premiere Pro CC基本操作',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '003Premiere Pro CC基本操作',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/003Premiere%20Pro%20CC%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '004  通过命令导入素材文件、编组素材文件、嵌套素材文件',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/004%20%20%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E7%BC%96%E7%BB%84%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6%E3%80%81%E5%B5%8C%E5%A5%97%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '007  通过选择工具编辑家居生活  008  通过剃刀工具编辑篮球比赛',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/007%20%20%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%AE%B6%E5%B1%85%E7%94%9F%E6%B4%BB%20%20008%20%20%E9%80%9A%E8%BF%87%E5%89%83%E5%88%80%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E7%AF%AE%E7%90%83%E6%AF%94%E8%B5%9B.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }, {
-                        name: '009  通过滑动工具编辑快乐童年  010  通过比率拉伸工具编辑水珠特效',
-                        url: 'http://ov0zs83zq.bkt.clouddn.com/009%20%20%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E5%BF%AB%E4%B9%90%E7%AB%A5%E5%B9%B4%20%20010%20%20%E9%80%9A%E8%BF%87%E6%AF%94%E7%8E%87%E6%8B%89%E4%BC%B8%E5%B7%A5%E5%85%B7%E7%BC%96%E8%BE%91%E6%B0%B4%E7%8F%A0%E7%89%B9%E6%95%88.mp4',
-                        isSF:'public',
-                        menu: 'CAD', teacher: '邹安旭',
-                        llcs: '1128'
-                    }]
+                    restUrl: 'http://www.alaoji.com:8080/lgFace',
+                    userName: '',
+                    selectCourseTeacher: '',
+                    selectIsCharge: '',
+                    selectCourseType: '',
+                    couserTypeItems: [],
+                    couserTeacherItems: [],
+                    items: [],
+                    page: 0,
+                    pageIndex: 1,
+                    totalCount: '',
+                    search: {
+                        pageIndex: 1,
+                        pageSize: 16
+                    }
+
                 },
                 methods: {
+                    getCourseType: function () {
+                        var me = this;
+                        $.ajax({
+                            type: "get",
+                            url: me.restUrl + "/comn/getCouserType",//获取列表数据
+                            dataType: "jsonp",
+                            async: false,
+                            data: {},
+                            success: function (data) {
+                                me.couserTypeItems = data.comns;
+                            }
+                        });
+                    },
+                    getTeacher: function () {
+                        var me = this;
+                        $.ajax({
+                            type: "get",
+                            url: me.restUrl + "/comn/getTeacher",//获取列表数据
+                            dataType: "jsonp",
+                            async: false,
+                            data: {},
+                            success: function (data) {
+                                me.couserTeacherItems = data.teachers;
+                            }
+                        });
+                    },
                     getData: function (param) {
                         var me = this;
-                        
                         if (param) {
-                            if (param.type) {
-                                param.type =='ALL' ? me.selectType = '' : me.selectType = param.type; 
-                            } else if (param.teacher) {
-                                param.teacher =='ALL' ? me.selectTeacher = '' : me.selectTeacher = param.teacher;
-                            } else if (param.menu) {
-                                param.menu =='ALL' ? me.selectMenu = '' : me.selectMenu = param.menu; 
+                            if (param.isCharge) {
+                                param.isCharge == 'ALL' ? me.selectIsCharge = '' : me.selectIsCharge = param.isCharge;
+                                param.isCharge == 'ALL' ? '' : me.search.isCharge = param.isCharge;
+                            } else if (param.courseTeacher) {
+                                param.courseTeacher == 'ALL' ? me.selectCourseTeacher = '' : me.selectCourseTeacher = param.courseTeacher;
+                                param.courseTeacher == 'ALL' ? '' : me.search.courseTeacher = param.courseTeacher;
+                            } else if (param.courseType) {
+                                param.courseType == 'ALL' ? me.selectCourseType = '' : me.selectCourseType = param.courseType;
+                                param.courseType == 'ALL' ? '' : me.search.courseType = param.courseType;
                             }
                         }
-                        if(me.selectMenu && me.selectTeacher && me.selectType){
-                            me.showItems = me.items.filter(function(item){
-                                return item.menu == me.selectMenu && item.teacher == me.selectTeacher && item.isSF == me.selectType;
-                            })
-                        }else if(me.selectMenu && me.selectTeacher){
-                            me.showItems = me.items.filter(function(item){
-                                return item.menu == me.selectMenu && item.teacher == me.selectTeacher;
-                            })
-                        }else if(me.selectMenu && me.selectType){
-                            me.showItems = me.items.filter(function(item){
-                                return item.menu == me.selectMenu && item.isSF == me.selectType;
-                            })
-                        }else if(me.selectTeacher && me.selectType){
-                            me.showItems = me.items.filter(function(item){
-                                return item.teacher == me.selectTeacher && item.isSF == me.selectType;
-                            })
-                        }else if(me.selectMenu){
-                            me.showItems = me.items.filter(function(item){
-                                return item.menu == me.selectMenu;
-                            })
-                        }else if(me.selectTeacher){
-                            me.showItems = me.items.filter(function(item){
-                                return item.teacher == me.selectTeacher;
-                            })
-                        }else if(me.selectType){
-                            me.showItems = me.items.filter(function(item){
-                                return item.isSF == me.selectType;
-                            })
-                        }else{
-                            me.showItems = me.items;
-                        }
+                        me.search.pageIndex = me.pageIndex;
+                        me.search.pageSize = 16;
+                        $.ajax({
+                            type: "get",
+                            url: me.restUrl + "/couser/getCouserMessage",//获取列表数据
+                            dataType: "jsonp",
+                            async: false,
+                            data: me.search,
+                            success: function (data) {
+                                me.items = data.couserInfo;
+                                me.totalCount = data.totalCount;
+                                me.page = Math.ceil(me.totalCount / 16);
+                                me.initPage();//初始化分页组件
+                            }
+                        });
 
 
                     },
@@ -643,12 +552,32 @@
                                 parent.location.reload();
                             }
                         }, 1);
+                    },
+                    quit: function () {
+                        localStorage.clear();
+                        location.reload();
+                    },
+                    initPage: function () {
+                        var me = this;
+                        //分页
+                        $("#page").paging({
+                            pageNo: me.pageIndex,
+                            totalPage: me.page,
+                            totalSize: me.totalCount,
+                            callback: function (num) {
+                                me.pageIndex = num;
+                                me.getData();
+                                $(window).scrollTop(0);
+                            }
+                        })
                     }
                 },
                 mounted: function () {
                     this.isIE();
+                    this.getCourseType();
+                    this.getTeacher();
                     this.getData();
-
+                    this.userName = localStorage.getItem("userName");
                 }
             });
         });
