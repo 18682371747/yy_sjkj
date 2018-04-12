@@ -3,18 +3,20 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta courseName="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta courseName="keywords" content="岳阳映像设计空间 映像设计 室内设计">
-    <meta courseName="description" content="岳阳映像设计空间 映像设计 室内设计">
-    <title>映像设计空间</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="keywords" content="岳阳设计空间 设计空间 室内设计">
+    <meta name="description" content="岳阳设计空间 设计空间 室内设计">
+    <title>设计空间</title>
     <link rel="icon" type="image/png" href="favicon.ico">
     <link href="./resource/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="./resource/css/base.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./resource/css/layui.css">
     <link href="./resource/css/main.css" rel="stylesheet" type="text/css">
     <link href="./resource/css/style.css" rel="stylesheet" media="screen">
 
     <script type="text/javascript" src="./resource/js/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src="./resource/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./resource/js/layui.js"></script>
     <script type="text/javascript" src="./resource/js/vue.min.js"></script>
 
 
@@ -114,6 +116,145 @@
             height: 32px;
             line-height: 32px;
         }
+
+        .main_kuan_01,
+        .main_Set {
+            overflow: hidden;
+            height: auto;
+            width: 100%;
+        }
+
+        .main_Set .boxgrid {
+            width: 396px;
+            height: 220px;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            margin: 5px;
+            border-radius: 10px;
+        }
+
+        .main_Set .boxgrid img {
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+
+        .main_Set .boxgrid p {
+            display: block;
+            padding: 0 20px;
+            color: #fff;
+            overflow: hidden;
+            line-height: 24px;
+            font-size: 14px;
+            text-indent: 30px
+        }
+
+        .main_Set .boxgrid p a {
+            display: block;
+            color: #FFF;
+            font-size: 14px;
+            text-indent: 30px
+        }
+
+        .main_Set .boxgrid p a:hover {
+            display: block;
+            text-decoration: none
+        }
+
+        .main_Set .boxcaptionY,
+        .boxcaptionB,
+        .boxcaptionR,
+        .boxcaptionG,
+        .boxcaptionP {
+            float: left;
+            position: absolute;
+            height: 220px;
+            width: 100%
+        }
+
+        .main_Set .captionfull .boxcaptionY,
+        .boxcaptionB,
+        .boxcaptionR,
+        .boxcaptionG,
+        .boxcaptionP {
+            top: 260px;
+            left: 0
+        }
+
+        .main_Set .boxgrid h3 {
+            margin: 20px 20px 10px;
+            font-size: 24px;
+            color: #FFF
+        }
+
+        .main_Set .boxcaptionY {
+            background: rgba(28, 151, 198, 0.9);
+            background: #1c97c6
+        }
+
+        .main_Set .boxcaptionB {
+            background: rgba(245, 139, 61, 0.9);
+            background: #f58b3d
+        }
+
+        .main_Set .boxcaptionR {
+            background: rgba(155, 216, 63, 0.9);
+            background: #9bd83f
+        }
+
+        .main_Set .boxcaptionG {
+            background: rgba(242, 107, 88, 0.9);
+            background: #f26b58
+        }
+
+        .main_Set .boxcaptionP {
+            background: rgba(148, 146, 147, 0.9);
+            background: #949293
+        }
+
+        .Menubox {
+            width: 100%;
+            height: 50px;
+            line-height: 40px;
+            text-align: center;
+            background: url(./resource/images/i_title_pic02.jpg) repeat-x top;
+            color: #333
+        }
+
+        .Menubox h2 {
+            line-height: 40px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .Menubox ul li {
+            width: 130px;
+            float: left;
+            cursor: pointer;
+            height: 50px
+        }
+
+        .Menubox a:link {
+            background-image: none
+        }
+
+        .Menubox a:visited {
+            background-image: none
+        }
+
+        .Menubox a:active {
+            background-image: none
+        }
+
+        .Menubox .hover {
+            background: url(./resource/images/i_title_pic.png) no-repeat center;
+            color: #fff
+        }
+
+        .Menubox .hover h2 {
+            color: #FFF
+        }
     </style>
 
 
@@ -127,11 +268,11 @@
                     <div class="navbar-header">
                         <div class="col-md-2" style="width:12.5%;padding-left: 0px;">
                             <a class="" href="">
-                                <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.png" alt="东翌编程logo" title="东翌编程logo">
+                                <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.png" alt="编程logo" title="编程logo">
                             </a>
                         </div>
                         <!-- 头部菜单start -->
-                        <div class="col-md-7" id="h_n_min" style="width:52.5%;">
+                        <div class="col-md-7" id="h_n_min" style="width:67.5%;">
                             <nav class="collapse navbar-collapse f-right" style="float:left;">
                                 <ul class="nav navbar-nav">
                                     <li>
@@ -145,6 +286,18 @@
                                         <a class="color-w" href="lecturer.html">师资力量</a>
                                     </li>
                                     <li>
+                                        <a class="color-w" href="showcoulist.html">项目团队</a>
+                                    </li>
+                                    <li>
+                                        <a class="color-w" href="platform.html">老师加盟</a>
+                                    </li>
+                                    <li>
+                                        <a class="color-w" href="platform.html">学员感言</a>
+                                    </li>
+                                    <li>
+                                        <a class="color-w" href="platform.html">实训基地</a>
+                                    </li>
+                                    <li>
                                         <a class="color-w" href="platform.html">就业平台</a>
                                     </li>
                                     <li>
@@ -154,7 +307,7 @@
                             </nav>
                         </div>
                         <!-- 头部菜单end -->
-                        <div class="col-md-4" style="width:35%;padding-right: 0px;">
+                        <div class="col-md-4" style="width:20%;padding-right: 0px;">
                             <nav class="collapse navbar-collapse f-right">
                                 <ul class="nav navbar-nav" style="margin-right: 0px;">
 
@@ -196,42 +349,109 @@
         <div class="mp-container">
 
             <section class="header-container">
-                <div class="container container-hp" id="particles-js">
-                    <div id="shadow"></div>
-                    <div class="row page-container align-l" style="padding: 3% 0;">
-                        <div class="col-xs-12 col-md-12" style="text-align: center;position: relative;z-index: 9999;">
-                            <h1 class="h1 mp-h1" style="font-weight: 300;letter-spacing:1px;font-size: 40px;">零基础学习 室内平面建筑园林影视手绘设计
-                                <p style="margin-top: 30px;margin-bottom: 30px;font-size: 18px;">通过完善的课程体系, N多各种各样的实战教程, 让大家快速掌握设计思想和知识点</p>
-                            </h1>
-                            <fieldset class="tab-panel">
-                                <!--Field-->
-                                <div class="cta-row">
-                                    <a href="">
-                                        <button class="btn btn-primary btn-submit-large js_form_error">加入学习</button>
-                                    </a>
+                <div class="layui-carousel" id="banner">
+                    <div carousel-item="">
+                        <div :class="index==(gg_items.length-1) ? 'layui-this' : ''" v-for="(item,index) in gg_items">
+                            <img :src="item.imgBanner" width="100%" height="100%">
+                        </div>
+
+                    </div>
+                    <div class="layui-carousel-ind">
+                        <ul>
+                            <li :class="index==(gg_items.length-1) ? 'layui-this' : ''" v-for="(item,index) in gg_items"></li>
+                        </ul>
+                    </div>
+                    <button class="layui-icon layui-carousel-arrow" lay-type="sub"></button>
+                    <button class="layui-icon layui-carousel-arrow" lay-type="add"></button>
+                </div>
+            </section>
+
+            <section class="container price-table-container" style="padding: 30px 0;">
+                <div class="main_kuan_01">
+                    <div class="main_Set">
+                        <div class="boxgrid captionfull">
+                            <img src="http://sta.qinxue.com/images/pic02.jpg">
+                            <a href="http://www.qinxue.com/pingmiansheji/" target="_blank">
+                                <div class="cover boxcaptionY" style="top: 260px;">
+                                    <h3>平面设计学院</h3>
+                                    <p>通过对本学院课程的系统学习，学员可在短期内掌握平面设计岗位所需的专业技能；熟练应用Coreldraw、Indesign、Photoshop、Illustrator等软件工具；能完成与表达任何创意；熟练进行有创意的视觉设计；成为具有先进设计思想和理念的平面设计实用型、技能型人才。</p>
                                 </div>
-                            </fieldset>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull">
+                            <img src="http://sta.qinxue.com/images/pic01.jpg">
+                            <a href="http://www.qinxue.com/shineisheji/" target="_blank">
+                                <div class="cover boxcaptionB" style="top: 260px;">
+                                    <h3>室内设计学院</h3>
+                                    <p>本学院以培养学员室内设计实战技能为教学重点，通过大量的案例教学，让学员熟练掌握室内方案设计、施工工艺、材料应用、软装配饰设计、工程预算、效果表现和CAD施工图绘制技艺。由经验丰富的讲师和业内牛人授课，培养富有想象力和创造力以及艺术素养的室内装饰设计人才。
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull">
+                            <img src="http://sta.qinxue.com/images/pic05.jpg">
+                            <a href="http://www.qinxue.com/yuanlinjingguan/" target="_blank">
+                                <div class="cover boxcaptionR">
+                                    <h3>园林景观设计学院</h3>
+                                    <p>本学院课程涵盖从景观设计到施工的全流程，培养基础扎实，知识面宽，专业素质高，实践能力强，具备风景园林规划设计、城市规划与设计、风景名胜区和各类城市绿地的规划设计等方面的知识，能在城市建设、园林等部门从事规划设计、施工和管理的应用型人才。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull">
+                            <img src="http://sta.qinxue.com/images/pic03.jpg">
+                            <a href="http://www.qinxue.com/yingshihouqi/" target="_blank">
+                                <div class="cover boxcaptionG" style="top: 260px;">
+                                    <h3>影视后期制作学院</h3>
+                                    <p>影视后期制作学院为电视和电影制作工业培养后期专业人才。通过影视剪辑，影视合成和三维制作等模块进行系统的学习，学成后能够适应行业中的各种制作规范和各大公司的制作流程，真正成为影视特效公司，影视广告公司，影视动画公司，电视台等高级专业人才。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull">
+                            <img src="http://sta.qinxue.com/images/pic04.jpg">
+                            <a href="http://www.qinxue.com/jixiesheji/" target="_blank">
+                                <div class="cover boxcaptionP" style="top: 260px;">
+                                    <h3>机械设计学院</h3>
+                                    <p>机械设计学院提供CAD，CAM,CAE三大块方面的软件视频教学，包含PRO/E, Solidworks, UG, CATIA, Moldflow, Mastercam,
+                                        Rhino, Keyshot 等行业主流软件应用，同时穿插有注塑模具设计，五金冲压模具设计，产品设计等课程。让学员全方位掌握机械设计行业软件知识及技能。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull">
+                            <img src="http://sta.qinxue.com/images/pic06.jpg">
                         </div>
                     </div>
-                    <canvas class="particles-js-canvas-el" width="1898" height="437" style="width: 100%; height: 100%;"></canvas>
                 </div>
+
             </section>
 
-            <!--课程分类start-->
-            <section>
-                <div class="shizhan-header-nav">
-                    <div class="clearfix">
-                        <a @click="getData('ALL')" :class="selectMenu == 'ALL' ? 'cur' : ''">全部</a>
-                        <a v-for="item in couserTypeItems" @click="getData(item.id)" :class="selectMenu == item.comnValue ? 'cur' : ''" v-text="item.comnValue"></a>
-                    </div>
-                </div>
-            </section>
-            <!--课程分类end-->
+
 
             <section class="p-layout">
+                    <div class="container">
+                            <div class="col-lg-12">
+                                <h1 class="page-title" style="padding: 10px 0;font-size: 22px;letter-spacing:0.5px;font-weight: 600;"></h1>
+                            </div>
+                        </div>
+                <!--课程分类start-->
+                <div class="container">
+                    <div class="clearfix">
+
+                        <div class="Menubox">
+                            <ul>
+                                <li id="one1" @click="getData('ALL')" :class="selectMenu == 'ALL' ? 'hover' : ''">
+                                    <h2>最新更新</h2>
+                                </li>
+                                <li id="one2" v-for="item in couserTypeItems" @click="getData(item.id)" :class="selectMenu == item.id ? 'hover' : ''">
+                                    <h2 v-text="item.comnValue"></h2>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--课程分类end-->
                 <div class="container">
                     <div class="col-lg-12">
-                        <h1 class="page-title" style="padding: 20px 0;font-size: 22px;letter-spacing:0.5px;font-weight: 600;"></h1>
+                        <h1 class="page-title" style="padding: 10px 0;font-size: 22px;letter-spacing:0.5px;font-weight: 600;"></h1>
                     </div>
                 </div>
                 <div class="container price-table-container row row-nt" style="padding-bottom: 50px;">
@@ -275,8 +495,6 @@
         <!--底部版权end-->
     </div>
 
-    <script src="./resource/js/particles.min.js"></script>
-    <script src="./resource/js/app.js"></script>
     <script>
 
         $(function () {
@@ -286,7 +504,8 @@
                     restUrl: 'http://www.alaoji.com:8080/lgFace',
                     selectMenu: 'ALL',
                     items: [],
-                    couserTypeItems:[],
+                    couserTypeItems: [],
+                    gg_items: [{ imgBanner: './resource/images/logo.png' }, { imgBanner: './resource/images/logo.png' }, { imgBanner: './resource/images/logo.png' }],
                     userName: ''
                 },
                 methods: {
@@ -302,6 +521,19 @@
                                 me.couserTypeItems = data.comns;
                             }
                         });
+                    },
+                    tupianlunbo: function () {
+                        layui.use(['carousel'], function () {
+                            var carousel = layui.carousel;
+                            carousel.render({
+                                elem: '#banner'
+                                , arrow: 'always'
+                                , width: '100%'
+                                , height: '450px'
+                                , interval: 2500
+                            });
+                        });
+
                     },
                     getData: function (courseTypeName) {
                         var me = this;
@@ -353,12 +585,22 @@
                     quit: function () {
                         localStorage.clear();
                         location.reload();
+                    },
+                    menuHover: function () {
+                        $('.boxgrid.captionfull').hover(function () {
+                            $(".cover", this).stop().animate({ top: '0px' }, { queue: false, duration: 160 });
+                        }, function () {
+                            $(".cover", this).stop().animate({ top: '260px' }, { queue: false, duration: 160 });
+                        });
                     }
                 },
                 mounted: function () {
                     this.isIE();
+                    this.tupianlunbo();
                     this.getCourseType();
+                    this.menuHover();
                     this.getData('ALL');
+
                     this.userName = localStorage.getItem("userName");
 
                 }
