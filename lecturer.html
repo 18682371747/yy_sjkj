@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0023)http://www.dybc.com.cn/ -->
 <html lang="zh-CN">
 
 <head>
@@ -14,7 +13,6 @@
     <link href="./resource/css/main.css" rel="stylesheet" type="text/css">
     <link href="./resource/css/style.css" rel="stylesheet" media="screen">
 
-    <script type="text/javascript" src="./resource/js/hm.js"></script>
     <script type="text/javascript" src="./resource/js/jquery.min.js"></script>
     <script type="text/javascript" src="./resource/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./resource/js/vue.min.js"></script>
@@ -102,10 +100,11 @@
                     <div class="navbar-header">
                         <div class="col-md-2" style="width:12.5%;padding-left: 0px;">
                             <a class="" href="">
-                                <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.png" alt="logo" title="logo">
+                                <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.png" alt="编程logo" title="编程logo">
                             </a>
                         </div>
-                        <div class="col-md-7" id="h_n_min" style="width:52.5%;">
+                        <!-- 头部菜单start -->
+                        <div class="col-md-7" id="h_n_min" style="width:67.5%;">
                             <nav class="collapse navbar-collapse f-right" style="float:left;">
                                 <ul class="nav navbar-nav">
                                     <li>
@@ -119,6 +118,18 @@
                                         <a class="color-w" href="lecturer.html">师资力量</a>
                                     </li>
                                     <li>
+                                        <a class="color-w" href="tuandui.html">项目团队</a>
+                                    </li>
+                                    <li>
+                                        <a class="color-w" href="laoshi.html">老师加盟</a>
+                                    </li>
+                                    <li>
+                                        <a class="color-w" href="ganyan.html">学员感言</a>
+                                    </li>
+                                    <li>
+                                        <a class="color-w" href="shixun.html">实训基地</a>
+                                    </li>
+                                    <li>
                                         <a class="color-w" href="platform.html">就业平台</a>
                                     </li>
                                     <li>
@@ -127,7 +138,8 @@
                                 </ul>
                             </nav>
                         </div>
-                        <div class="col-md-4" style="width:35%;padding-right: 0px;">
+                        <!-- 头部菜单end -->
+                        <div class="col-md-4" style="width:20%;padding-right: 0px;">
                             <nav class="collapse navbar-collapse f-right">
                                 <ul class="nav navbar-nav" style="margin-right: 0px;">
 
@@ -143,7 +155,7 @@
                             </nav>
                         </div>
 
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
+                        <button courseTypeName="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -155,6 +167,18 @@
             </div>
         </header>
 
+        <div id="float_im" style="height:161px;">
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2971611409&amp;site=qq&amp;menu=yes">
+                <div class="qq">
+                    <img src="./resource/images/qq.png" title="qq在线客服" alt="qq在线客服">
+                    <p>在线客服</p>
+                </div>
+            </a>
+            <div class="code">
+                <img src="./resource/images/code.jpg" title="设计空间公众号二维码" alt="设计空间微信公众号二维码">
+                <img class="b" src="./resource/images/code.jpg" title="设计空间微信公众号二维码大图" alt="设计空间微信公众号二维码大图">
+            </div>
+        </div>
 
         <div id="shadow1" style="display:none;"></div>
         <div id="ie">
@@ -199,7 +223,7 @@
                                 <div class="teacher-desc" v-text="item.teacherIntroduce"></div>
                             </div>
 
-                            
+
                         </div>
                         <div class="loading" style="display: none;">
                             <div class="bounce1"></div>
@@ -269,6 +293,10 @@
                                 parent.location.reload();
                             }
                         }, 1);
+                    },
+                    quit: function () {
+                        localStorage.clear();
+                        location.reload();
                     }
                 },
                 mounted: function () {

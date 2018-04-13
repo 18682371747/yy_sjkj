@@ -51,12 +51,12 @@
 
         .salary_com {
             width: 100%;
-            height: 642px;
             background: url(./resource/images/salary16.jpg) center no-repeat;
+            background-size: 100% 100%;
         }
 
         .div_center {
-            width: 1200px;
+            width: 100%;
             height: auto;
             margin: 0 auto;
             text-align: center;
@@ -99,7 +99,7 @@
         }
 
         .salary_note {
-            width: 1046px;
+            width: 100%;
             height: auto;
             display: table;
             margin: 0 auto;
@@ -145,6 +145,114 @@
         .about li {
             width: 50%;
         }
+
+        .main_kuan_01,
+        .main_Set {
+            overflow: hidden;
+            height: auto;
+            width: 100%;
+        }
+
+        .main_kuan_01 .guanggao {
+            border-bottom: 1px solid #eceff0;
+            font-size: 16px;
+            line-height: 25px;
+            color: #363d40;
+            margin-bottom: 1.1em;
+        }
+
+        .main_Set .boxgrid {
+            height: 170px;
+            float: left;
+            overflow: hidden;
+            position: relative;
+
+            padding: 0 9px;
+        }
+
+        .main_Set .boxgrid img {
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .main_Set .boxgrid p {
+            display: block;
+            padding: 0 20px;
+            color: #fff;
+            overflow: hidden;
+            line-height: 24px;
+            font-size: 14px;
+            text-indent: 30px
+        }
+
+        .main_Set .boxgrid p a {
+            display: block;
+            color: #FFF;
+            font-size: 14px;
+            text-indent: 30px
+        }
+
+        .main_Set .boxgrid p a:hover {
+            display: block;
+            text-decoration: none
+        }
+
+        .main_Set .boxcaptionY,
+        .boxcaptionB,
+        .boxcaptionR,
+        .boxcaptionG,
+        .boxcaptionP {
+            float: left;
+            position: absolute;
+            height: 220px;
+            width: 100%
+        }
+
+        .main_Set .captionfull .boxcaptionY,
+        .boxcaptionB,
+        .boxcaptionR,
+        .boxcaptionG,
+        .boxcaptionP {
+            top: 260px;
+            left: 0
+        }
+
+        .main_Set .boxgrid h3 {
+            margin: 20px 20px 10px;
+            font-size: 24px;
+            color: #FFF
+        }
+
+        .main_Set .boxcaptionY {
+            background: rgba(28, 151, 198, 0.9);
+            background: #1c97c6
+        }
+
+        .main_Set .boxcaptionB {
+            background: rgba(245, 139, 61, 0.9);
+            background: #f58b3d
+        }
+
+        .main_Set .boxcaptionR {
+            background: rgba(155, 216, 63, 0.9);
+            background: #9bd83f
+        }
+
+        .main_Set .boxcaptionG {
+            background: rgba(242, 107, 88, 0.9);
+            background: #f26b58
+        }
+
+        .main_Set .boxcaptionP {
+            background: rgba(148, 146, 147, 0.9);
+            background: #949293
+        }
+
+        .p-layout .col-md-4,
+        .p-layout .col-lg-4 {
+            padding: 0 9px;
+            margin-bottom: 18px;
+        }
     </style>
 </head>
 
@@ -156,11 +264,11 @@
                     <div class="navbar-header">
                         <div class="col-md-2" style="width:12.5%;padding-left: 0px;">
                             <a class="" href="">
-                                <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.png" alt="logo" title="logo">
+                                <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.png" alt="编程logo" title="编程logo">
                             </a>
                         </div>
                         <!-- 头部菜单start -->
-                        <div class="col-md-7" id="h_n_min" style="width:52.5%;">
+                        <div class="col-md-7" id="h_n_min" style="width:67.5%;">
                             <nav class="collapse navbar-collapse f-right" style="float:left;">
                                 <ul class="nav navbar-nav">
                                     <li>
@@ -174,6 +282,18 @@
                                         <a class="color-w" href="lecturer.html">师资力量</a>
                                     </li>
                                     <li>
+                                        <a class="color-w" href="tuandui.html">项目团队</a>
+                                    </li>
+                                    <li>
+                                        <a class="color-w" href="laoshi.html">老师加盟</a>
+                                    </li>
+                                    <li>
+                                        <a class="color-w" href="ganyan.html">学员感言</a>
+                                    </li>
+                                    <li>
+                                        <a class="color-w" href="shixun.html">实训基地</a>
+                                    </li>
+                                    <li>
                                         <a class="color-w" href="platform.html">就业平台</a>
                                     </li>
                                     <li>
@@ -183,7 +303,7 @@
                             </nav>
                         </div>
                         <!-- 头部菜单end -->
-                        <div class="col-md-4" style="width:35%;padding-right: 0px;">
+                        <div class="col-md-4" style="width:20%;padding-right: 0px;">
                             <nav class="collapse navbar-collapse f-right">
                                 <ul class="nav navbar-nav" style="margin-right: 0px;">
 
@@ -199,7 +319,7 @@
                             </nav>
                         </div>
 
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
+                        <button courseTypeName="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -266,12 +386,95 @@
                     </div>
                 </div>
             </section>
+            <section class="container price-table-container" style="padding: 30px 0;">
+                <div class="main_kuan_01">
+                    <h1 class="guanggao">就业单位</h1>
+                    <div class="main_Set ">
+                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-3 col-adm ">
+                            <img src="./resource/images/pic02.jpg " width=" ">
+                            <a href="showcoulist.html " target="_blank ">
+                                <div class="cover boxcaptionY " style="top: 260px; ">
+                                    <h3>平面设计学院</h3>
+                                    <p>通过对本学院课程的系统学习，学员可在短期内掌握平面设计岗位所需的专业技能；熟练应用Coreldraw、Indesign、Photoshop、Illustrator等软件工具；能完成与表达任何创意；熟练进行有创意的视觉设计；成为具有先进设计思想和理念的平面设计实用型、技能型人才。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-3 col-adm ">
+                            <img src="./resource/images/pic01.jpg ">
+                            <a href="showcoulist.html " target="_blank ">
+                                <div class="cover boxcaptionB " style="top: 260px; ">
+                                    <h3>室内设计学院</h3>
+                                    <p>本学院以培养学员室内设计实战技能为教学重点，通过大量的案例教学，让学员熟练掌握室内方案设计、施工工艺、材料应用、软装配饰设计、工程预算、效果表现和CAD施工图绘制技艺。由经验丰富的讲师和业内牛人授课，培养富有想象力和创造力以及艺术素养的室内装饰设计人才。
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-3 col-adm ">
+                            <img src="./resource/images/pic05.jpg ">
+                            <a href="showcoulist.html " target="_blank ">
+                                <div class="cover boxcaptionR ">
+                                    <h3>园林景观设计学院</h3>
+                                    <p>本学院课程涵盖从景观设计到施工的全流程，培养基础扎实，知识面宽，专业素质高，实践能力强，具备风景园林规划设计、城市规划与设计、风景名胜区和各类城市绿地的规划设计等方面的知识，能在城市建设、园林等部门从事规划设计、施工和管理的应用型人才。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-3 col-adm ">
+                            <img src="./resource/images/pic03.jpg ">
+                            <a href="showcoulist.html " target="_blank ">
+                                <div class="cover boxcaptionG " style="top: 260px; ">
+                                    <h3>影视后期制作学院</h3>
+                                    <p>影视后期制作学院为电视和电影制作工业培养后期专业人才。通过影视剪辑，影视合成和三维制作等模块进行系统的学习，学成后能够适应行业中的各种制作规范和各大公司的制作流程，真正成为影视特效公司，影视广告公司，影视动画公司，电视台等高级专业人才。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-3 col-adm ">
+                            <img src="./resource/images/pic02.jpg " width=" ">
+                            <a href="showcoulist.html " target="_blank ">
+                                <div class="cover boxcaptionY " style="top: 260px; ">
+                                    <h3>平面设计学院</h3>
+                                    <p>通过对本学院课程的系统学习，学员可在短期内掌握平面设计岗位所需的专业技能；熟练应用Coreldraw、Indesign、Photoshop、Illustrator等软件工具；能完成与表达任何创意；熟练进行有创意的视觉设计；成为具有先进设计思想和理念的平面设计实用型、技能型人才。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-3 col-adm ">
+                            <img src="./resource/images/pic01.jpg ">
+                            <a href="showcoulist.html " target="_blank ">
+                                <div class="cover boxcaptionB " style="top: 260px; ">
+                                    <h3>室内设计学院</h3>
+                                    <p>本学院以培养学员室内设计实战技能为教学重点，通过大量的案例教学，让学员熟练掌握室内方案设计、施工工艺、材料应用、软装配饰设计、工程预算、效果表现和CAD施工图绘制技艺。由经验丰富的讲师和业内牛人授课，培养富有想象力和创造力以及艺术素养的室内装饰设计人才。
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-3 col-adm ">
+                            <img src="./resource/images/pic05.jpg ">
+                            <a href="showcoulist.html " target="_blank ">
+                                <div class="cover boxcaptionR ">
+                                    <h3>园林景观设计学院</h3>
+                                    <p>本学院课程涵盖从景观设计到施工的全流程，培养基础扎实，知识面宽，专业素质高，实践能力强，具备风景园林规划设计、城市规划与设计、风景名胜区和各类城市绿地的规划设计等方面的知识，能在城市建设、园林等部门从事规划设计、施工和管理的应用型人才。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-3 col-adm ">
+                            <img src="./resource/images/pic03.jpg ">
+                            <a href="showcoulist.html " target="_blank ">
+                                <div class="cover boxcaptionG " style="top: 260px; ">
+                                    <h3>影视后期制作学院</h3>
+                                    <p>影视后期制作学院为电视和电影制作工业培养后期专业人才。通过影视剪辑，影视合成和三维制作等模块进行系统的学习，学成后能够适应行业中的各种制作规范和各大公司的制作流程，真正成为影视特效公司，影视广告公司，影视动画公司，电视台等高级专业人才。</p>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
         </div>
 
-        <footer id="footer" class="footer b-top">
-            <div class="copyright">
-                <span class="color-light">Copyright © 2018&nbsp;
-                    <a href="">长沙融聚文化有限公司</a>&nbsp;版权所有 湘ICP备XXX号.</span>
+        <footer id="footer " class="footer b-top ">
+            <div class="copyright ">
+                <span class="color-light ">Copyright © 2018&nbsp;
+                    <a href=" ">长沙融聚文化有限公司</a>&nbsp;版权所有 湘ICP备XXX号.</span>
             </div>
         </footer>
     </div>
@@ -294,27 +497,31 @@
                     isIE: function () {
                         //判断浏览器
                         var browser = navigator.appName;
-                        if (browser == "Microsoft Internet Explorer") {
+                        if (browser == "Microsoft Internet Explorer ") {
                             var b_version = navigator.appVersion;
-                            var version = b_version.split(";");
-                            var trim_Version = version[1].replace(/[ ]/g, "");
-                            if (trim_Version == "MSIE6.0" || trim_Version == "MSIE7.0" || trim_Version == "MSIE8.0" || trim_Version == "MSIE9.0") {
-                                document.getElementById('ie').style.display = 'block';
-                                document.getElementById('shadow1').style.display = 'block';
-                            }
+                            var version = b_version.split("; ");
+                            var trim_Version = version[1].replace(/[ ]/g, " ");
+                            if (trim_Version == "MSIE6.0 " || trim_Version == "MSIE7.0 " || trim_Version == "MSIE8.0" || trim_Version == "MSIE9.0 ") {
+                            document.getElementById('ie').style.display = 'block';
+                            document.getElementById('shadow1').style.display = 'block';
                         }
-                    },
-                    openWin: function (url, text, winInfo) {
-                        var winObj = window.open(url, text, winInfo);
-                        var loop = setInterval(function () {
-                            if (winObj.closed) {
-                                clearInterval(loop);
-                                //alert('closed');      
-                                parent.location.reload();
-                            }
-                        }, 1);
                     }
                 },
+                openWin: function (url, text, winInfo) {
+                    var winObj = window.open(url, text, winInfo);
+                    var loop = setInterval(function () {
+                        if (winObj.closed) {
+                            clearInterval(loop);
+                            //alert('closed');      
+                            parent.location.reload();
+                        }
+                    }, 1);
+                },
+                quit: function () {
+                    localStorage.clear();
+                    location.reload();
+                }
+            },
                 mounted: function () {
                     this.isIE();
                     var code = document.getElementsByClassName('code');
@@ -322,15 +529,15 @@
                         for (var a = 0; a < code.length; a++) {
                             code[a].onmouseover = function () {
                                 var b = this.getElementsByClassName('b');
-                                b[0].style.display = "block";
+                                b[0].style.display = "block ";
                             }
                             code[a].onmouseout = function () {
                                 var b = this.getElementsByClassName('b');
-                                b[0].style.display = "none";
+                                b[0].style.display = "none ";
                             }
                         }
                     }
-                    this.userName = localStorage.getItem("userName");
+                    this.userName = localStorage.getItem("userName ");
 
                 }
             });
