@@ -910,9 +910,69 @@ h3,
 }
 .footer {
     width: 100%;
-    height: 120px;
-    line-height: 120px;
+    height: 80px;
+    line-height: 80px;
 }
+.footer .copyright  a{
+    color:#999933;
+}
+.footer .copyright .shareTo {
+    float: left;
+}
+.footer .copyright .shareTo div{
+    display: inline-block;
+    margin-right: 10px;
+}
+.footer .copyright .shareTo div img{
+    border: none;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+
+
+.footer_bottom{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #000066;
+    padding-top: 50px;
+}
+.footer_bottom .bottom_kuan {
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+.footer_bottom .bottom_left {
+    float: left;
+}
+
+.footer_bottom .bottom_left li {
+    width: 100%;
+    float: left;
+    display: block;
+    padding-right: 80px;
+    font-size: 14px;
+    color: #eee;
+    line-height: 28px;
+}
+
+.footer_bottom .bottom_right {
+    float: right;
+    padding-top: 5px;
+}
+.footer_bottom .bottom_left li dl {
+    vertical-align: baseline;
+}
+.footer_bottom .bottom_left li dd {
+    display: inline-block;
+    padding-right: 25px;
+}
+.footer_bottom .bottom_left li dd a{
+    color: #fff;
+}
+
 .type-icon {
     display: inline-block; 
     height: 22px;
@@ -1303,7 +1363,28 @@ h3,
     .address {
         width:240px;
     }
+    .footer_bottom{
+        font-size:12px;
+    }
+    .footer_bottom{
+        font-size:12px;
+        padding-right: 0;
+    }
+    .footer_bottom .bottom_left li{
+        font-size:12px;
+        padding-right: 0;
 
+    }
+    .footer_bottom .bottom_left li dd{
+        padding-right: 1rem;
+    }
+    .footer_bottom .bottom_right{
+        display: none;
+    }
+    
+
+
+   
 
 }
 
@@ -1524,45 +1605,4 @@ h3,
 }
 #work_order .right table td a{
     color:#14c779;
-}
-
-.footer_bottom{
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    background: #000066;
-    padding-top: 50px;
-}
-.footer_bottom .bottom_kuan {
-    height: auto;
-    overflow: hidden;
-    margin: 0 auto;
-    padding-bottom: 30px;
-}
-.footer_bottom .bottom_left {
-    width: 730px;
-    float: left;
-}
-
-.footer_bottom .bottom_left li {
-    width: 100%;
-    float: left;
-    display: block;
-    padding-right: 80px;
-    font-size: 14px;
-    color: #eee;
-    line-height: 28px;
-}
-
-.footer_bottom .bottom_right {
-    width: 206px;
-    float: right;
-    padding-top: 5px;
-}
-.footer_bottom .bottom_left li dd {
-    display: inline-block;
-    padding-right: 25px;
-}
-.footer_bottom .bottom_left li dd a{
-    color: #fff;
 }

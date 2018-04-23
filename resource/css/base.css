@@ -242,6 +242,10 @@ a:focus {
 .color-light {
     color: #71778d;
 }
+.color-999933 {
+    color: #999933;
+}
+
 .f-small-13 {
     font-size: 13px;
 }
@@ -836,7 +840,7 @@ input[type='submit'] {
     padding-bottom: 15px;
 }
 .copyright {
-  /*background-color: rgba(0, 0, 0, 0.04);*/
+  background-color: rgba(0, 0, 0, 1);
   text-align: center;
   font-size: 12px;
   padding-bottom: 10px;
