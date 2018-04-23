@@ -1525,3 +1525,44 @@ h3,
 #work_order .right table td a{
     color:#14c779;
 }
+
+.footer_bottom{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #000066;
+    padding-top: 50px;
+}
+.footer_bottom .bottom_kuan {
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+.footer_bottom .bottom_left {
+    width: 730px;
+    float: left;
+}
+
+.footer_bottom .bottom_left li {
+    width: 100%;
+    float: left;
+    display: block;
+    padding-right: 80px;
+    font-size: 14px;
+    color: #eee;
+    line-height: 28px;
+}
+
+.footer_bottom .bottom_right {
+    width: 206px;
+    float: right;
+    padding-top: 5px;
+}
+.footer_bottom .bottom_left li dd {
+    display: inline-block;
+    padding-right: 25px;
+}
+.footer_bottom .bottom_left li dd a{
+    color: #fff;
+}

@@ -123,11 +123,13 @@
             height: auto;
             width: 100%;
         }
-        @media (min-width: 1200px){
+
+        @media (min-width: 1200px) {
             .col-lg-6 {
                 width: 49%;
             }
         }
+
         .main_Set .boxgrid {
             height: 260px;
             float: left;
@@ -137,9 +139,8 @@
             padding: 0;
         }
 
-        .main_Set .boxgrid img 
-            width: 100%;
-            height: 100%;
+        .main_Set .boxgrid img width: 100%;
+        height: 100%;
         }
 
         .main_Set .boxgrid p {
@@ -192,27 +193,27 @@
 
         .main_Set .boxcaptionY {
             background: rgba(28, 151, 198, 0.9);
-            background: rgb(252,219,0)
+            background: rgb(252, 219, 0)
         }
 
         .main_Set .boxcaptionB {
             background: rgba(245, 139, 61, 0.9);
-            background: rgb(252,219,0)
+            background: rgb(252, 219, 0)
         }
 
         .main_Set .boxcaptionR {
             background: rgba(155, 216, 63, 0.9);
-            background: rgb(252,219,0)
+            background: rgb(252, 219, 0)
         }
 
         .main_Set .boxcaptionG {
             background: rgba(242, 107, 88, 0.9);
-            background: rgb(252,219,0)
+            background: rgb(252, 219, 0)
         }
 
         .main_Set .boxcaptionP {
             background: rgba(148, 146, 147, 0.9);
-            background: rgb(252,219,0)
+            background: rgb(252, 219, 0)
         }
 
         .Menubox {
@@ -254,7 +255,7 @@
 
         .Menubox .hover {
             color: #fff;
-            background:#000066;
+            background: #000066;
         }
 
         .Menubox .hover h2 {
@@ -489,12 +490,73 @@
 
         </div>
         <!--内容end-->
+        <div class="footer_bottom">
+            <div class="bottom_kuan container">
+                <div class="bottom_left" style="width:910px;">
+                    <ul>
+                        <li>咨询热线
+                            <dl>
+                                <dd>
+                                    <h3>18682371747</h3>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>如何帮到您
+                            <dl>
+                                <dd>
+                                    <a href="" target="_blank">设计培训</a>
+                                </dd>
+                                <dd>
+                                    <a href="" target="_blank">实习就业</a>
+                                </dd>
+                                <dd>
+                                    <a href="" target="_blank">人才招聘</a>
+                                </dd>
+                                <dd>
+                                    <a href="" target="_blank">项目合作</a>
+                                </dd>
+                                <dd>
+                                    <a href="" target="_blank">联系我们</a>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>微信扫码咨询
+                            <dl>
+                                <dd>
+                                    <img src="./resource/images/code.jpg" width="100" height="100">
+                                </dd>
+                                
+                            </dl>
+                        </li>
+                        <li>QQ:374314451
+                            
+                        </li>
+                        <li style="display:none;">相关下载
+                            <dl>
+                                <dd>
+                                    <a target="_blank" href="">播放器插件下载</a>
+                                </dd>
+                            </dl>
+                        </li>
 
+                    </ul>
+                </div>
+                <div class="bottom_right" style="width:260px;">
+                    <div style="display:block; width:92px; height:22px; float:left;">
+                        <iframe src="/index.php?r=entQq/index" frameborder="0" height="30" scrolling="no" allowtransparency="true"></iframe>
+                    </div>
+                    <div style="height:22px; line-height:22px; padding:0px 15px; color:#999999; background:#333333; float:left;">800135999</div>
+                    <img src="http://sta.qinxue.com/images/bottom_tel.jpg" style="margin-top:16px;">
+                </div>
+            </div>
+        </div>
         <!--底部版权start-->
         <footer id="footer" class="footer b-top">
             <div class="copyright">
                 <span class="color-light">Copyright © 2018&nbsp;www.yysjkj.cn&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="">长沙融聚文化有限公司</a>&nbsp;版权所有 <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备18007097号-1.</a></span>
+                    <a href="">长沙融聚文化有限公司</a>&nbsp;版权所有
+                    <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备18007097号-1.</a>
+                </span>
             </div>
         </footer>
         <!--底部版权end-->
@@ -559,16 +621,16 @@
                             async: false,
                             data: param,
                             success: function (data) {
-                                data.couserInfo.map(function(x){
-                                    if(x.courseTypeName == '室内设计'){
+                                data.couserInfo.map(function (x) {
+                                    if (x.courseTypeName == '室内设计') {
                                         x.courseImg = './resource/images/t_snsj.png';
-                                    }else if(x.courseTypeName == '平面设计'){
+                                    } else if (x.courseTypeName == '平面设计') {
                                         x.courseImg = './resource/images/t_pmsj.png';
-                                    }else if(x.courseTypeName == '园林景观'){
+                                    } else if (x.courseTypeName == '园林景观') {
                                         x.courseImg = './resource/images/t_jzjg.png';
-                                    }else if(x.courseTypeName == '建筑表现'){
+                                    } else if (x.courseTypeName == '建筑表现') {
                                         x.courseImg = './resource/images/t_jzjg.png';
-                                    }else if(x.courseTypeName == '影视后期'){
+                                    } else if (x.courseTypeName == '影视后期') {
                                         x.courseImg = './resource/images/t_yshq.png';
                                     }
                                 })
