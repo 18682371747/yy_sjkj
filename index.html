@@ -123,17 +123,21 @@
             height: auto;
             width: 100%;
         }
-
+        @media (min-width: 1200px){
+            .col-lg-6 {
+                width: 49%;
+            }
+        }
         .main_Set .boxgrid {
-            height: 200px;
+            height: 260px;
             float: left;
             overflow: hidden;
             position: relative;
-            padding: 5px;
+            margin: 5px;
+            padding: 0;
         }
 
-        .main_Set .boxgrid img {
-            border-radius: 10px;
+        .main_Set .boxgrid img 
             width: 100%;
             height: 100%;
         }
@@ -167,8 +171,8 @@
         .boxcaptionP {
             float: left;
             position: absolute;
-            height: 200px;
-            width: 100%
+            height: 260px;
+            width: 100%;
         }
 
         .main_Set .captionfull .boxcaptionY,
@@ -188,27 +192,27 @@
 
         .main_Set .boxcaptionY {
             background: rgba(28, 151, 198, 0.9);
-            background: #1c97c6
+            background: rgb(252,219,0)
         }
 
         .main_Set .boxcaptionB {
             background: rgba(245, 139, 61, 0.9);
-            background: #f58b3d
+            background: rgb(252,219,0)
         }
 
         .main_Set .boxcaptionR {
             background: rgba(155, 216, 63, 0.9);
-            background: #9bd83f
+            background: rgb(252,219,0)
         }
 
         .main_Set .boxcaptionG {
             background: rgba(242, 107, 88, 0.9);
-            background: #f26b58
+            background: rgb(252,219,0)
         }
 
         .main_Set .boxcaptionP {
             background: rgba(148, 146, 147, 0.9);
-            background: #949293
+            background: rgb(252,219,0)
         }
 
         .Menubox {
@@ -216,21 +220,24 @@
             height: 50px;
             line-height: 40px;
             text-align: center;
-            background: url(./resource/images/i_title_pic02.jpg) repeat-x top;
             color: #333
         }
 
         .Menubox h2 {
-            line-height: 40px;
-            font-size: 14px;
+            line-height: 36px;
+            font-size: 18px;
             font-weight: bold;
+            letter-spacing: 4px;
         }
 
-        .Menubox ul li {
-            width: 130px;
+        .Menubox div {
+            width: 13%;
             float: left;
             cursor: pointer;
-            height: 50px
+            height: 36px;
+            margin: 0 0.5%;
+            border: 1px solid #000066;
+            border-radius: 18px;
         }
 
         .Menubox a:link {
@@ -246,8 +253,8 @@
         }
 
         .Menubox .hover {
-            background: url(./resource/images/i_title_pic.png) no-repeat center;
-            color: #fff
+            color: #fff;
+            background:#000066;
         }
 
         .Menubox .hover h2 {
@@ -266,12 +273,30 @@
                     <div class="navbar-header">
                         <div class="col-md-2" style="width:12.5%;padding-left: 0px;">
                             <a class="" href="">
-                                <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.png" alt="编程logo" title="编程logo">
+                                <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.jpg">
                             </a>
                         </div>
+                        <div class="col-md-12 userinfo" style="width:80%;padding-right: 15px;">
+                            <nav class="collapse navbar-collapse f-right">
+                                <ul class="nav navbar-nav" style="margin-right: 0px;">
+
+                                    <li style="margin-right: 0px;">
+                                        <a class="color-w" style="color:#fff;" v-text="userName" v-if="userName"></a>
+                                        <a class="color-w" href="login.html" v-else>登录</a>
+                                    </li>
+                                    <li style="margin-right: 0px;color:#fff;">
+                                        |
+                                    </li>
+                                    <li style="margin-right: 0px;">
+                                        <a class="color-w" href="" style="color:#fff;" @click="quit" v-if="userName">注销</a>
+                                        <a class="color-w" href="register.html" v-else>注册</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                         <!-- 头部菜单start -->
-                        <div class="col-md-7" id="h_n_min" style="width:67.5%;">
-                            <nav class="collapse navbar-collapse f-right" style="float:left;">
+                        <div class="col-md-12" id="h_n_min" style="width:80%;">
+                            <nav class="collapse navbar-collapse f-right" style="float:right;">
                                 <ul class="nav navbar-nav">
                                     <li>
                                         <a class="color-w link1" href="index.html">首页</a>
@@ -305,23 +330,9 @@
                             </nav>
                         </div>
                         <!-- 头部菜单end -->
-                        <div class="col-md-4" style="width:20%;padding-right: 0px;">
-                            <nav class="collapse navbar-collapse f-right">
-                                <ul class="nav navbar-nav" style="margin-right: 0px;">
 
-                                    <li style="margin-right: 0px;">
-                                        <a class="color-w" style="color:#666;" v-text="userName" v-if="userName"></a>
-                                        <a class="color-w" href="login.html" v-else>登录</a>
-                                    </li>
-                                    <li style="margin-right: 0px;">
-                                        <a class="color-w" href="" style="color:#666;" @click="quit" v-if="userName">注销</a>
-                                        <a class="color-w" href="register.html" v-else>注册</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
 
-                        <button courseTypeName="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -367,8 +378,8 @@
             <section class="container price-table-container" style="padding: 30px 0;">
                 <div class="main_kuan_01">
                     <div class="main_Set">
-                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-4 col-adm">
-                            <img src="./resource/images/pic02.jpg">
+                        <div class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
+                            <img src="./resource/images/x_pmsj.png" style="width: 100%;height:100%;">
                             <a href="showcoulist.html" target="_blank">
                                 <div class="cover boxcaptionY" style="top: 260px;">
                                     <h3>平面设计学院</h3>
@@ -376,8 +387,8 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-4 col-adm">
-                            <img src="./resource/images/pic01.jpg">
+                        <div class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
+                            <img src="./resource/images/x_snsj.png" style="width: 100%;height:100%;">
                             <a href="showcoulist.html" target="_blank">
                                 <div class="cover boxcaptionB" style="top: 260px;">
                                     <h3>室内设计学院</h3>
@@ -386,8 +397,8 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-4 col-adm">
-                            <img src="./resource/images/pic05.jpg">
+                        <div class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
+                            <img src="./resource/images/x_jgbx.png" style="width: 100%;height:100%;">
                             <a href="showcoulist.html" target="_blank">
                                 <div class="cover boxcaptionR">
                                     <h3>园林景观设计学院</h3>
@@ -395,17 +406,8 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-4 col-adm">
-                            <img src="./resource/images/pic03.jpg">
-                            <a href="showcoulist.html" target="_blank">
-                                <div class="cover boxcaptionG" style="top: 260px;">
-                                    <h3>影视后期制作学院</h3>
-                                    <p>影视后期制作学院为电视和电影制作工业培养后期专业人才。通过影视剪辑，影视合成和三维制作等模块进行系统的学习，学成后能够适应行业中的各种制作规范和各大公司的制作流程，真正成为影视特效公司，影视广告公司，影视动画公司，电视台等高级专业人才。</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-4 col-adm">
-                            <img src="./resource/images/pic04.jpg">
+                        <div class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
+                            <img src="./resource/images/x_jzbx.png" style="width: 100%;height:100%;">
                             <a href="showcoulist.html" target="_blank">
                                 <div class="cover boxcaptionP" style="top: 260px;">
                                     <h3>机械设计学院</h3>
@@ -414,8 +416,17 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="boxgrid captionfull col-xs-12 col-md-4 col-lg-4 col-adm">
-                            <img src="./resource/images/pic06.jpg">
+                        <div class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
+                            <img src="./resource/images/x_yshq.png" style="width: 100%;height:100%;">
+                            <a href="showcoulist.html" target="_blank">
+                                <div class="cover boxcaptionG" style="top: 260px;">
+                                    <h3>影视后期制作学院</h3>
+                                    <p>影视后期制作学院为电视和电影制作工业培养后期专业人才。通过影视剪辑，影视合成和三维制作等模块进行系统的学习，学成后能够适应行业中的各种制作规范和各大公司的制作流程，真正成为影视特效公司，影视广告公司，影视动画公司，电视台等高级专业人才。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
+                            <img src="./resource/images/x_more.png" style="width: 100%;height:100%;">
                         </div>
                     </div>
                 </div>
@@ -432,17 +443,13 @@
                 </div>
                 <!--课程分类start-->
                 <div class="container">
-                    <div class="clearfix">
 
-                        <div class="Menubox">
-                            <ul>
-                                <li id="one1" @click="getData('ALL')" :class="selectMenu == 'ALL' ? 'hover' : ''">
-                                    <h2>最新更新</h2>
-                                </li>
-                                <li id="one2" v-for="item in couserTypeItems" @click="getData(item.id)" :class="selectMenu == item.id ? 'hover' : ''">
-                                    <h2 v-text="item.comnValue"></h2>
-                                </li>
-                            </ul>
+                    <div class="Menubox">
+                        <div @click="getData('ALL')" :class="selectMenu == 'ALL' ? 'hover' : ''">
+                            <h2>最新更新</h2>
+                        </div>
+                        <div v-for="item in couserTypeItems" @click="getData(item.id)" :class="selectMenu == item.id ? 'hover' : ''">
+                            <h2 v-text="item.comnValue"></h2>
                         </div>
                     </div>
                 </div>
@@ -455,7 +462,7 @@
                 <div class="container price-table-container row row-nt" style="padding-bottom: 50px;">
                     <div class="col-xs-12 col-md-4 col-lg-3 col-adm" v-for="item in items">
                         <div class="i-wrap align-center pack clearfix" style="background: #fff;">
-                            <img src="./resource/images/3DMAX.png" class="img-responsive" style="width:100%;height: 200px;" :alt="item.courseName" :title="item.courseName">
+                            <img :src="item.courseImg" class="img-responsive" style="width:100%;height: 300px;" :alt="item.courseName" :title="item.courseName">
                             <div style="position: relative;top:-6px;">
                                 <div class="pt-features" style="padding-top: 15px;padding-bottom: 11px;">
                                     <ul>
@@ -486,8 +493,8 @@
         <!--底部版权start-->
         <footer id="footer" class="footer b-top">
             <div class="copyright">
-                <span class="color-light">Copyright © 2018&nbsp;
-                    <a href="">长沙融聚文化有限公司</a>&nbsp;版权所有 湘ICP备XXX号.</span>
+                <span class="color-light">Copyright © 2018&nbsp;www.yysjkj.cn&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="">长沙融聚文化有限公司</a>&nbsp;版权所有 <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备18007097号-1.</a></span>
             </div>
         </footer>
         <!--底部版权end-->
@@ -503,7 +510,7 @@
                     selectMenu: 'ALL',
                     items: [],
                     couserTypeItems: [],
-                    gg_items: [{ imgBanner: './resource/images/logo.png' }, { imgBanner: './resource/images/logo.png' }, { imgBanner: './resource/images/logo.png' }],
+                    gg_items: [{ imgBanner: './resource/images/header_bg.png' }, { imgBanner: './resource/images/header_bg.png' }, { imgBanner: './resource/images/header_bg.png' }],
                     userName: ''
                 },
                 methods: {
@@ -552,6 +559,19 @@
                             async: false,
                             data: param,
                             success: function (data) {
+                                data.couserInfo.map(function(x){
+                                    if(x.courseTypeName == '室内设计'){
+                                        x.courseImg = './resource/images/t_snsj.png';
+                                    }else if(x.courseTypeName == '平面设计'){
+                                        x.courseImg = './resource/images/t_pmsj.png';
+                                    }else if(x.courseTypeName == '园林景观'){
+                                        x.courseImg = './resource/images/t_jzjg.png';
+                                    }else if(x.courseTypeName == '建筑表现'){
+                                        x.courseImg = './resource/images/t_jzjg.png';
+                                    }else if(x.courseTypeName == '影视后期'){
+                                        x.courseImg = './resource/images/t_yshq.png';
+                                    }
+                                })
                                 me.items = data.couserInfo;
                             }
                         });

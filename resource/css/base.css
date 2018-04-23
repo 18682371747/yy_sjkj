@@ -698,7 +698,7 @@ input[type='submit'] {
     box-shadow: 0 10px 40px 0 rgba(62,57,107,.07), 0 2px 9px 0 rgba(62,57,107,.06);
     transition: all .2s ease;
     /*border-radius: 3px;*/
-    border-radius: .28571429rem;
+    /* border-radius: .28571429rem; */
     overflow: hidden;
 }
 .pack:hover{
@@ -714,7 +714,7 @@ input[type='submit'] {
     color:#14c779;
 }
 .p-layout .col-md-4 ,.p-layout .col-lg-4{
-    padding: 0 9px;
+    padding: 0 5px;
     margin-bottom: 18px;
 }
 .pt-features .a{

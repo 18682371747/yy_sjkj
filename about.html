@@ -53,78 +53,82 @@
     <div id="app">
 
 
-        <header id="header" class="navbar brand-color navbar-inverse fixed-header-layout" role="navigation">
-            <div class="container">
-                <div class="col-xs-12 col-md-12" style="padding-left: 0px;padding-right: 0px;">
-                    <div class="navbar-header">
-                        <div class="col-md-2" style="width:12.5%;padding-left: 0px;">
-                            <a class="" href="">
-                                <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.png" alt="编程logo" title="编程logo">
-                            </a>
+            <header id="header" class="navbar brand-color navbar-inverse fixed-header-layout" role="navigation">
+                    <div class="container">
+                        <div class="col-xs-12 col-md-12" style="padding-left: 0px;padding-right: 0px;">
+                            <div class="navbar-header">
+                                <div class="col-md-2" style="width:12.5%;padding-left: 0px;">
+                                    <a class="" href="">
+                                        <img class="logo logo-visible v-middle" width="120" src="./resource/images/sjkj.png">
+                                    </a>
+                                </div>
+                                <div class="col-md-12 userinfo" style="width:80%;padding-right: 15px;">
+                                    <nav class="collapse navbar-collapse f-right">
+                                        <ul class="nav navbar-nav" style="margin-right: 0px;">
+        
+                                            <li style="margin-right: 0px;">
+                                                <a class="color-w" style="color:#fff;" v-text="userName" v-if="userName"></a>
+                                                <a class="color-w" href="login.html" v-else>登录</a>
+                                            </li>
+                                            <li style="margin-right: 0px;color:#fff;">
+                                                |
+                                            </li>
+                                            <li style="margin-right: 0px;">
+                                                <a class="color-w" href="" style="color:#fff;" @click="quit" v-if="userName">注销</a>
+                                                <a class="color-w" href="register.html" v-else>注册</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- 头部菜单start -->
+                                <div class="col-md-12" id="h_n_min" style="width:80%;">
+                                    <nav class="collapse navbar-collapse f-right" style="float:right;">
+                                        <ul class="nav navbar-nav">
+                                            <li>
+                                                <a class="color-w link1" href="index.html">首页</a>
+                                            </li>
+        
+                                            <li>
+                                                <a class="color-w" href="showcoulist.html">课程中心</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="lecturer.html">师资力量</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="tuandui.html">项目团队</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="laoshi.html">老师加盟</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="ganyan.html">学员感言</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="shixun.html">实训基地</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="platform.html">就业平台</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="about.html">关于我们</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- 头部菜单end -->
+        
+        
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+        
+                            </div>
                         </div>
-                        <!-- 头部菜单start -->
-                        <div class="col-md-7" id="h_n_min" style="width:67.5%;">
-                            <nav class="collapse navbar-collapse f-right" style="float:left;">
-                                <ul class="nav navbar-nav">
-                                    <li>
-                                        <a class="color-w link1" href="index.html">首页</a>
-                                    </li>
-
-                                    <li>
-                                        <a class="color-w" href="showcoulist.html">课程中心</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="lecturer.html">师资力量</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="tuandui.html">项目团队</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="laoshi.html">老师加盟</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="ganyan.html">学员感言</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="shixun.html">实训基地</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="platform.html">就业平台</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="about.html">关于我们</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <!-- 头部菜单end -->
-                        <div class="col-md-4" style="width:20%;padding-right: 0px;">
-                            <nav class="collapse navbar-collapse f-right">
-                                <ul class="nav navbar-nav" style="margin-right: 0px;">
-
-                                    <li style="margin-right: 0px;">
-                                        <a class="color-w" style="color:#666;" v-text="userName" v-if="userName"></a>
-                                        <a class="color-w" href="login.html" v-else>登录</a>
-                                    </li>
-                                    <li style="margin-right: 0px;">
-                                        <a class="color-w" href="" style="color:#666;" @click="quit" v-if="userName">注销</a>
-                                        <a class="color-w" href="register.html" v-else>注册</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-
-                        <button courseTypeName="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
                     </div>
-                </div>
-            </div>
-        </header>
+                </header>
         <section>
             <div id="float_im" style="height:161px;">
                 <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2971611409&amp;site=qq&amp;menu=yes">

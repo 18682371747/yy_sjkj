@@ -63,15 +63,9 @@ b {
     /*background-color: #41485e;*/
 }
 #header{
-    height: 66px;
-    background: #fff;
+    height: 100px;
+    background: #000066;
     border-bottom: 1px solid #e2e2e2;
-    /*box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);*/
-    /*background-image: url("../bg/01d8f55600f0da32f875a132a3cab3.jpg");*/
-    /*background-size: 100%;*/
-    /*background-color: #148df6;*/
-    /*background: -webkit-linear-gradient(left,#148df6,#a744ae);*/
-    /*background: linear-gradient(90deg,#148df6,#a744ae);*/
     position: relative;
     z-index: 99999;
 }
@@ -79,11 +73,15 @@ b {
     margin-top: 0px;
 }
 #header ul li{
-    height:66px;
-    line-height: 66px;
+    height:50px;
+    line-height: 50px;
 }
 #header ul li a{
-    font-size: 13px;
+    font-size: 15px;
+    color: #cccc33;
+}
+.userinfo a.color-w {
+    color: #fff!important;
 }
 .header-container {
     /*background-image: url('/static/img/waves.png');*/
@@ -185,8 +183,8 @@ h3,
     font-size: 18px;
 }
 .logo {
-    height: 38px;
-    margin-top: 12px;
+    height: 80px;
+    margin-top: 10px;
     /*padding-bottom: 4px;*/
 }
 .container-main-features {
@@ -529,13 +527,13 @@ h3,
     margin-left: 100px;
 }
 .navbar-nav {
-    margin: 12px 15px 0px 0px;
+    margin: 0px;
 }
 .navbar-nav li,
 .login {
     display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 .navbar-nav li a:hover {
     color: #33d79b;
@@ -1219,6 +1217,7 @@ h3,
         right: 3px;
         padding: 6px !important;
         border:1px solid #41485e !important;
+        background: #ffffff !important;
     }
     .navbar-toggle .icon-bar{
         background: #41485e;
@@ -1237,8 +1236,8 @@ h3,
         margin-top: 15px !important;;
     }
     #header .col-xs-12{
-        height:66px;
-        background: #ffffff !important;
+        height:100px;
+       
     }
     #h_n_min .navbar-collapse ul{
         margin-right: 0px !important;
@@ -1256,6 +1255,9 @@ h3,
     #header .col-md-3 {
         width: 100% !important;
         clear: both;
+    }
+    #header .userinfo{
+        display: none;
     }
     #header .col-md-3 .navbar-collapse{
         background: #ffffff !important;
