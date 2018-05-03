@@ -190,6 +190,9 @@
             font-size: 24px;
             color: #FFF
         }
+        .main_Set .boxgrid h3+p {
+            margin: 0 10px;
+        }
 
         .main_Set .boxcaptionY {
             background: rgba(28, 151, 198, 0.9);
@@ -297,14 +300,19 @@
                         </div>
                         <!-- 头部菜单start -->
                         <div class="col-md-12" id="h_n_min" style="width:80%;">
-                            <nav class="collapse navbar-collapse f-right" style="float:right;">
-                                <ul class="nav navbar-nav">
+                            <nav class="collapse navbar-collapse f-right animenu" style="float:right;">
+                                <ul class="nav navbar-nav animenu__nav">
                                     <li>
                                         <a class="color-w link1" href="index.html">首页</a>
                                     </li>
 
                                     <li>
                                         <a class="color-w" href="showcoulist.html">课程中心</a>
+                                        <ul class="animenu__nav__child">
+                                            <li v-for="item in majorItems">
+                                                <a :href="'showcoulist.html?titleType=products&menuType='+item.id" v-text="item.comnTypeName"></a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <a class="color-w" href="lecturer.html">师资力量</a>
@@ -382,54 +390,16 @@
             <section class="container price-table-container" style="padding: 30px 0;">
                 <div class="main_kuan_01">
                     <div class="main_Set">
-                        <div class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
-                            <img src="./resource/images/x_pmsj.png" style="width: 100%;height:100%;">
+                        <div v-for="item in majorItems" @mouseover="outHide" @mouseout="outHide" class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
+                            <img :src="item.imgBanner" style="width: 100%;height:100%;">
                             <a href="showcoulist.html" target="_blank">
-                                <div class="cover boxcaptionY" style="top: 260px;">
-                                    <h3>平面设计学院</h3>
-                                    <p>通过对本学院课程的系统学习，学员可在短期内掌握平面设计岗位所需的专业技能；熟练应用Coreldraw、Indesign、Photoshop、Illustrator等软件工具；能完成与表达任何创意；熟练进行有创意的视觉设计；成为具有先进设计思想和理念的平面设计实用型、技能型人才。</p>
+                                <div class="cover boxcaptionY" style="top: 260px;" ref="majorText">
+                                    <h3 v-text="item.comnTypeName"></h3>
+                                    <p v-text="item.bz"></p>
                                 </div>
                             </a>
                         </div>
-                        <div class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
-                            <img src="./resource/images/x_snsj.png" style="width: 100%;height:100%;">
-                            <a href="showcoulist.html" target="_blank">
-                                <div class="cover boxcaptionB" style="top: 260px;">
-                                    <h3>室内设计学院</h3>
-                                    <p>本学院以培养学员室内设计实战技能为教学重点，通过大量的案例教学，让学员熟练掌握室内方案设计、施工工艺、材料应用、软装配饰设计、工程预算、效果表现和CAD施工图绘制技艺。由经验丰富的讲师和业内牛人授课，培养富有想象力和创造力以及艺术素养的室内装饰设计人才。
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
-                            <img src="./resource/images/x_jgbx.png" style="width: 100%;height:100%;">
-                            <a href="showcoulist.html" target="_blank">
-                                <div class="cover boxcaptionR">
-                                    <h3>园林景观设计学院</h3>
-                                    <p>本学院课程涵盖从景观设计到施工的全流程，培养基础扎实，知识面宽，专业素质高，实践能力强，具备风景园林规划设计、城市规划与设计、风景名胜区和各类城市绿地的规划设计等方面的知识，能在城市建设、园林等部门从事规划设计、施工和管理的应用型人才。</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
-                            <img src="./resource/images/x_jzbx.png" style="width: 100%;height:100%;">
-                            <a href="showcoulist.html" target="_blank">
-                                <div class="cover boxcaptionP" style="top: 260px;">
-                                    <h3>机械设计学院</h3>
-                                    <p>机械设计学院提供CAD，CAM,CAE三大块方面的软件视频教学，包含PRO/E, Solidworks, UG, CATIA, Moldflow, Mastercam,
-                                        Rhino, Keyshot 等行业主流软件应用，同时穿插有注塑模具设计，五金冲压模具设计，产品设计等课程。让学员全方位掌握机械设计行业软件知识及技能。</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
-                            <img src="./resource/images/x_yshq.png" style="width: 100%;height:100%;">
-                            <a href="showcoulist.html" target="_blank">
-                                <div class="cover boxcaptionG" style="top: 260px;">
-                                    <h3>影视后期制作学院</h3>
-                                    <p>影视后期制作学院为电视和电影制作工业培养后期专业人才。通过影视剪辑，影视合成和三维制作等模块进行系统的学习，学成后能够适应行业中的各种制作规范和各大公司的制作流程，真正成为影视特效公司，影视广告公司，影视动画公司，电视台等高级专业人才。</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
+                        <div v-if="majorItems.length%2" class="boxgrid captionfull col-xs-12 col-md-6 col-lg-6 col-adm">
                             <img src="./resource/images/x_more.png" style="width: 100%;height:100%;">
                         </div>
                     </div>
@@ -452,8 +422,8 @@
                         <div @click="getData('ALL')" :class="selectMenu == 'ALL' ? 'hover' : ''">
                             <h2>最新更新</h2>
                         </div>
-                        <div v-for="item in couserTypeItems" @click="getData(item.id)" :class="selectMenu == item.id ? 'hover' : ''">
-                            <h2 v-text="item.comnValue"></h2>
+                        <div v-for="item in majorItems" @click="getData(item.id)" :class="selectMenu == item.id ? 'hover' : ''">
+                            <h2 v-text="item.comnTypeName"></h2>
                         </div>
                     </div>
                 </div>
@@ -464,19 +434,19 @@
                     </div>
                 </div>
                 <div class="container price-table-container row row-nt" style="padding-bottom: 50px;">
-                    <div class="col-xs-12 col-md-4 col-lg-3 col-adm" v-for="item in items">
+                    <div class="col-xs-12 col-md-4 col-lg-3 col-adm" v-for="item in couserTypeItems">
                         <div class="i-wrap align-center pack clearfix" style="background: #fff;">
-                            <img :src="item.courseImg" class="img-responsive" style="width:100%;height: 300px;" :alt="item.courseName" :title="item.courseName">
+                            <img :src="item.imgBanner" class="img-responsive" style="width:100%;height: 300px;" :alt="item.comnTypeName" :title="item.comnTypeName">
                             <div style="position: relative;top:-6px;">
                                 <div class="pt-features" style="padding-top: 15px;padding-bottom: 11px;">
                                     <ul>
                                         <li>
-                                            <strong v-text="item.courseName"></strong>
+                                            <strong v-text="item.comnTypeName"></strong>
                                         </li>
-                                        <li class="a">
+                                        <!-- <li class="a">
                                             <span v-text="item.visNum+'浏览'"></span>
                                             <span :class="item.isCharge=='2' ? 'ismfcolor-mianfei' : 'ismfcolor-huiyuan'" v-text="item.isCharge=='2' ? '免费' : '会员'"></span>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -599,19 +569,37 @@
             var app = new Vue({
                 el: '#app',
                 data: {
-                    restUrl: 'http://www.alaoji.com:8080/lgFace',
+                    restUrl: 'http://39.106.11.92:8080/lgFace',
                     selectMenu: 'ALL',
                     items: [],
-                    couserTypeItems: [],
+                    couserTypeItems: [],//课程分类
+                    majorItems:[],//专业
                     gg_items: [{ imgBanner: './resource/images/header_bg.png' }, { imgBanner: './resource/images/header_bg.png' }, { imgBanner: './resource/images/header_bg.png' }],
                     userName: ''
                 },
                 methods: {
+                    getmajorItems: function () {
+                        var me = this;
+                        $.ajax({
+                            type: "get",
+                            url: me.restUrl + "/couser/getXYType",//获取列表数据
+                            dataType: "jsonp",
+                            async: false,
+                            data: {},
+                            success: function (data) {
+                                me.majorItems = data.comns;
+                                setTimeout(function(){
+                                    me.outHide();
+                                },1000)
+                                
+                            }
+                        });
+                    },
                     getCourseType: function () {
                         var me = this;
                         $.ajax({
                             type: "get",
-                            url: me.restUrl + "/comn/getCouserType",//获取列表数据
+                            url: me.restUrl + "/couser/getCouserType",//获取列表数据
                             dataType: "jsonp",
                             async: false,
                             data: {},
@@ -697,7 +685,7 @@
                         localStorage.clear();
                         location.reload();
                     },
-                    menuHover: function () {
+                    outHide: function () {
                         $('.boxgrid.captionfull').hover(function () {
                             $(".cover", this).stop().animate({ top: '0px' }, { queue: false, duration: 160 });
                         }, function () {
@@ -740,8 +728,9 @@
                 mounted: function () {
                     this.isIE();
                     this.tupianlunbo();
+                    this.getmajorItems();
                     this.getCourseType();
-                    this.menuHover();
+                   
                     this.getData('ALL');
 
                     this.userName = localStorage.getItem("userName");

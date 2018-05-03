@@ -58,14 +58,11 @@ b {
 .section-subscribe .agreement {
     color: #9aa0b2;
 }
-.header-container, 
-.fixed-header {
-    /*background-color: #41485e;*/
-}
+
 #header{
     height: 100px;
     background: #000066;
-    border-bottom: 1px solid #e2e2e2;
+    /* border-bottom: 1px solid #e2e2e2; */
     position: relative;
     z-index: 99999;
 }
@@ -91,6 +88,11 @@ b {
     position: relative;
     z-index: 0;
     overflow: hidden;
+}
+.header-container-bottom{
+    width:100%;
+    height:20px;
+    background-color: #cccc00;
 }
 .navbar-header .btn {
     min-width: 100px;
@@ -1605,4 +1607,78 @@ h3,
 }
 #work_order .right table td a{
     color:#14c779;
+}
+
+
+
+.animenu {
+    display: block;
+}
+
+.animenu ul {
+    padding: 0;
+    list-style: none;
+    font: 0px 'Open Sans', Arial, Helvetica;
+}
+
+.animenu a {
+    color: #aaaaaa;
+    text-decoration: none;
+}
+
+.animenu__nav>li {
+    position: relative;
+}
+
+.animenu__nav>li:hover>ul {
+    opacity: 1;
+    visibility: visible;
+    margin: 0;
+}
+.animenu__nav__child {
+    min-width: 120px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    margin: 20px 0 0 0;
+    background-color: #000066;
+    transition: margin .15s, opacity .15s;
+}
+
+.animenu__nav__child>li {
+    width: 100%;
+    height: 30px!important;
+    line-height: 30px!important;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.animenu__nav__child>li:last-child {
+    border: 0;
+}
+
+.animenu__nav__child a {
+    padding: 0 10px;
+    width: 100%;
+    border-color: #fff;
+    color: #fff!important;
+    font-size: 14px!important;
+    font-weight: initial!important;
+}
+
+.animenu__nav__child a:hover {
+    border-bottom: 2px solid #cccc33;
+    color: #cccc33!important;
+}
+
+.animenu__nav--open {
+    display: block !important;
+}
+
+.animenu__nav--open .animenu__nav__child {
+    display: block;
 }

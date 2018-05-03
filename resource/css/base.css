@@ -727,8 +727,8 @@ input[type='submit'] {
     padding-top: 5px;
 }
 .pt-features li strong{
-    height: 60px;
-    min-height: 60px;
+    height: 40px;
+    min-height: 40px;
     font-size: 13px;
     display: block;
 }
