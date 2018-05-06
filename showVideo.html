@@ -1,109 +1,1394 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="keywords" content="岳阳设计空间">
     <meta name="description" content="岳阳设计空间">
     <link rel="icon" type="image/png" href="favicon.ico">
     <link href="./resource/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="./resource/js/jquery-2.2.3.min.js"></script>
+    <link href="./resource/css/base.css" rel="stylesheet" type="text/css">
+    <link href="./resource/css/main.css" rel="stylesheet" type="text/css">
+    <link href="./resource/css/style.css" rel="stylesheet" media="screen">
+    <link href="./resource/css/video-js.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="./resource/js/jquery.min.js"></script>
+    <script src="./resource/js/video/video.min.js"></script>
+    <script src="./resource/js/video/zh-CN.js"></script>
+    <script type="text/javascript" src="./resource/js/paging.js"></script>
+    <script type="text/javascript" src="./resource/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./resource/js/vue.min.js"></script>
 
+    <title>设计空间</title>
     <style>
-        body {
-            background-color: rgb(0, 0, 0);
+        .footer-list {
+            overflow: hidden;
         }
 
-        body {
-            background: url(./resource/images/salary16.jpg) no-repeat;         
-            background-size: 100% 100%;
+        .footer-list li {
+            float: left;
+            width: 50%;
+            /*margin-right: 10px;*/
         }
 
+        .about li {
+            width: 50%;
+        }
 
+        span.ismfcolor-mianfei {
+            float: right;
+            color: #fff;
+            font-weight: 500;
+            background: rgb(20, 199, 121);
+            border-radius: 5px;
+            padding: 0px 10px;
+        }
 
-        video {
-            max-height: 95%;
-            max-width: 100%;
+        span.ismfcolor-huiyuan {
+            float: right;
+            color: #fff;
+            font-weight: 500;
+            background: #f0ad4e;
+            border-radius: 5px;
+            padding: 0px 10px;
+        }
+
+        .cc-mask {
+            background: rgba(0, 0, 0, .4);
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
             position: absolute;
-            top: 0px;
-            right: 0px;
-            bottom: 0px;
-            left: 0px;
-            margin: auto;
+            right: 0;
+            top: 0;
+            transition: all .3s ease 0s;
+            width: 100%;
+            transition: .3s;
+            -webkit-transition: .3s;
         }
 
-        video {
-            object-fit: contain;
+        .cc-mask .c-btn-1 {
+            left: 50%;
+            margin-left: -72px;
+            margin-top: -16px;
+            position: absolute;
+            top: 100%;
+            transition: .3s;
+            -webkit-transition: .3s
         }
+
+        .pack:hover .cc-mask {
+            opacity: 1;
+            filter: alpha( opacity=100)
+        }
+
+        .pack:hover img {
+            transform: scale(1.1);
+            -webkit-transform: scale(1.1)
+        }
+
+        .img-responsive {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            transition: .8s;
+            -webkit-transition: .8s
+        }
+
+        .pack:hover .cc-mask .c-btn-1 {
+            top: 50%
+        }
+
+        .c-btn-1 {
+            border-color: #fff;
+            color: #fff;
+            width: 120px;
+            font-size: 18px;
+        }
+
+        .comm-btn {
+            padding: 0 8px;
+            border: 1px solid;
+            border-radius: 16px;
+            display: inline-block;
+            text-align: center;
+            height: 32px;
+            line-height: 32px;
+        }
+
+        .comm-title {
+            overflow: hidden;
+            clear: both;
+            margin: 20px 0 5px;
+        }
+
+        .tac {
+            text-align: center;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        h2 {
+            font-size: 24px;
+            line-height: 30px;
+            font-weight: normal;
+        }
+
+        .c-s-dl dl {
+            border-bottom: 1px dotted #ddd;
+            line-height: 30px
+        }
+
+        .c-s-dl1 dl {
+            border-bottom: 0;
+        }
+
+        .c-s-dl dl dt {
+            float: left;
+            width: 75px;
+            text-align: right;
+            padding-right: 15px
+        }
+
+        .c-s-dl dl {
+            position: relative;
+            padding: 5px 0 15px 0;
+            margin-bottom: 10px;
+        }
+
+
+        .c-s-dl-li ul {
+            overflow: hidden
+        }
+
+        .c-s-dl-li ul li {
+            float: left;
+            margin: 0 2px 2px 0;
+            width: 16.5%;
+            text-align: center;
+            background: #666666;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .c-s-dl-li ul li.current {
+            float: left;
+            margin: 0 2px 2px 0;
+            width: 16.5%;
+            text-align: center;
+            background: #000066;
+        }
+
+        .c-s-dl-li ul li a {
+            display: inline-block;
+            color: #fff;
+            font-size: 14px;
+            padding: 0 10px
+        }
+
+        .c-s-dl dl ul li a:hover,
+        .c-s-dl-li ul li.current a {
+            color: #cccc33;
+            text-decoration: none
+        }
+
+        .c-sort-box {
+            /* border-top: 1px solid #e2e2e2; */
+            margin-top: -15px
+        }
+
+        .page_div {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            font-family: "microsoft yahei";
+            color: #666666;
+            margin-right: 10px;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+
+        /*
+        * 页数按钮样式
+        */
+
+        .page_div a {
+            min-width: 30px;
+            height: 28px;
+            border: 1px solid #dce0e0!important;
+            text-align: center;
+            margin: 0 4px;
+            cursor: pointer;
+            line-height: 28px;
+            color: #666666;
+            font-size: 13px;
+            display: inline-block;
+            border-radius: 3px;
+        }
+
+        #firstPage,
+        #lastPage {
+            width: 50px;
+            color: #0073A9;
+            border: 1px solid #0073A9!important;
+            border-radius: 3px;
+        }
+
+        #prePage,
+        #nextPage {
+            width: 70px;
+            color: #0073A9;
+            border: 1px solid #0073A9!important;
+            border-radius: 3px;
+        }
+
+        .page_div .current {
+            background-color: #0073A9;
+            border-color: #0073A9;
+            color: #FFFFFF;
+        }
+
+        .totalPages {
+            margin: 0 10px;
+        }
+
+        .totalPages span,
+        .totalSize span {
+            color: #0073A9;
+            margin: 0 5px;
+        }
+
+        .kcy_banner {
+            width: 100%;
+            background: #f4f4f4;
+            padding: 15px 0 15px;
+        }
+
+        .Current_Position_01 {
+            width: 1000px;
+            margin: 0 auto;
+            padding-bottom: 10px;
+            color: #999;
+        }
+
+        .kcy_kuan {
+            width: 1003px;
+            margin: 0 auto;
+            height: 450px;
+        }
+
+        .my-video-dimensions {
+            width: 100%;
+        }
+
+        .kcy_sp {
+            width: 480px;
+            float: left;
+            margin-right: 20px
+        }
+
+        .kcy_sp img {
+            z-index: 1
+        }
+
+        .kcy_con {
+            width: 490px;
+            height: 270px;
+            float: left;
+            text-align: left
+        }
+
+        .kcy_con .title {
+            font-size: 24px;
+            line-height: 1.6;
+            font-weight: bold;
+            width: 520px;
+            height: 40px;
+            overflow: hidden
+        }
+
+        .kcy_con .title h1 {
+            padding: 0;
+            margin: 0;
+            font-size: 24px
+        }
+
+        .kcy_con .con_jj {
+            line-height: 32px;
+            font-size: 14px
+        }
+
+        .kcy_con .con_jj .play_an {
+            width: 421px;
+            height: 43px;
+            line-height: 43px;
+            padding-top: 5px
+        }
+
+        .kcy_con .con_jj_01 {
+            font-size: 24px;
+            line-height: 26px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #f90;
+            font-weight: bold
+        }
+
+        .kcy_con .con_jj_02 {
+            font-size: 14px;
+            color: #333
+        }
+
+        .kcy_con .con_jj_02 a {
+            font-size: 14px;
+            color: #333;
+            text-decoration: underline
+        }
+
+
+        .kcy_con .con_jj_02 a:visited {
+            color: #333
+        }
+
+        .kcy_con .con_jj_02 a:active {
+            color: #333
+        }
+
+        .kcy_con .con_jj_02 a:hover {
+            color: #70a400
+        }
+
+        .kcy_con .con_jj_03 {
+            font-size: 14px;
+            line-height: 26px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #777;
+            font-weight: bold;
+            text-decoration: line-through
+        }
+
+        .kcy_con .con_jj_04 {
+            font-size: 16px;
+            color: #f60;
+            font-family: Arial, Helvetica, sans-serif
+        }
+
+        .kcy_con .con_jj_05 {
+            font-size: 16px;
+            color: #70a400;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif
+        }
+
+        .kcy_con .con_jj_06 {
+            text-decoration: line-through
+        }
+
+        .kcy_con .con_con {
+            height: auto;
+            overflow: hidden
+        }
+
+        .kcy_con .con_con4 {
+            margin-top: 0
+        }
+
+        .kcy_con .con_con .con_con_left01 {
+            width: 70px;
+            float: left
+        }
+
+        .kcy_con .con_con .con_con_left02 {
+            width: 170px;
+            float: left
+        }
+
+        .kcy_con .con_con .con_con_left03 {
+            width: 100px;
+            text-align: right;
+            float: left;
+            height: 23px;
+            line-height: 24px;
+            margin: 2px 0 0 8px
+        }
+
+        .kcy_con .con_con .con_con_left03 a:link {
+            display: block;
+            color: #999;
+            height: 23px;
+            line-height: 24px;
+            background: url(./resource/images/bcdzm_arr.png) no-repeat left
+        }
+
+        .kcy_con .con_con .con_con_left03 a:visited {
+            display: block;
+            color: #999;
+            height: 23px;
+            line-height: 24px;
+            background: url(./resource/images/bcdzm_arr.png) no-repeat left
+        }
+
+        .kcy_con .con_con .con_con_left03 a:active {
+            display: block;
+            color: #999;
+            height: 23px;
+            line-height: 24px;
+            background: url(./resource/images/bcdzm_arr.png) no-repeat left
+        }
+
+        .kcy_con .con_con .con_con_left03 a:hover {
+            display: block;
+            color: #aaa;
+            height: 23px;
+            line-height: 24px;
+            background: url(./resource/images/bcdzm_arr02.png) no-repeat left
+        }
+
+        .c_main {
+            width: 1003px;
+            height: auto;
+            overflow: hidden;
+            margin: 20px auto 20px;
+            _padding-top: 20px;
+        }
+
+        .c_main02 {
+            margin-top: 10px!important
+        }
+
+        .bdTabs {
+            width: 1000px;
+            height: 38px;
+            line-height: 38px;
+            border: 1px solid #dfdfdf;
+            margin: 0 auto 10px;
+            z-index: 99;
+            background: #fff;
+        }
+
+        .bdTabs ul {
+            position: relative;
+            height: 38px;
+            line-height: 38px;
+        }
+
+        .bdTabs ul li {
+            float: left;
+            font-size: 14px;
+            height: 38px;
+            line-height: 38px;
+        }
+
+        .bdTabs ul li a {
+            display: block;
+            font-size: 14px;
+            width: 104px;
+            text-align: center;
+            padding-left: 20px;
+        }
+
+        .bdTabs .arr01 a {
+            background: url(./resource/images/bdTabs_arr01.png) no-repeat 12px;
+        }
+
+        .bdTabs ul li a:link {
+            display: block;
+            font-size: 14px;
+        }
+
+        .bdTabs ul li a:visited {
+            display: block;
+            font-size: 14px;
+        }
+
+        .c_main .left02 {
+            width: 1000px;
+            float: left;
+            height: auto;
+            overflow: hidden
+        }
+
+        .c_main .left02 .left_con02 {
+            border: none!important;
+            background: none!important
+        }
+
+        .c_main .left02 .left_con02jia {
+            height: auto;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #dfdfdf;
+            margin-bottom: 10px
+        }
+
+        .c_main .left02 .left_con {
+            height: auto;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #dfdfdf
+        }
+
+        .c_main .left02 .left_con .title {
+            font-size: 14px;
+            height: 37px;
+            border-bottom: 1px solid #eee;
+            text-indent: 22px;
+            background: url(./resource/images/title_arr.jpg) no-repeat 10px 10px;
+            margin-top: 10px
+        }
+
+        .c_main .left02 .left_con .con_con {
+            height: auto;
+            overflow: hidden;
+            line-height: 1.8;
+            padding: 15px;
+            font-size: 14px
+        }
+
+        .c_main .left02 .left_con .con_con .teacher_list {
+            height: auto;
+            overflow: hidden
+        }
+
+        .c_main .left02 .left_con .con_con .teacher_list_right {
+            height: auto;
+            overflow: hidden
+        }
+
+        .c_main .left02 .left_con .con_con .list01 {
+            width: 220px;
+            float: left;
+            height: auto;
+            overflow: hidden;
+            margin: 15px 15px;
+            _margin: 15px 13px;
+            font-size: 12px
+        }
+
+        .c_main .left02 .left_con .con_con .list01_pic {
+            width: 202px;
+            height: 132px;
+            background: #eee;
+            padding: 5px;
+            margin-bottom: 15px;
+            position: relative
+        }
+
+        .c_main .left02 .left_con .paddingg {
+            padding: 0!important
+        }
+
+        .c_main .left02 .left_con .scrolll {
+            height: 800px;
+            overflow: auto
+        }
+
+        .c_main .left02 .left_con .scrolll .current {
+            background-color: #eee
+        }
+
+        .c_main .left02 .left_con .con_con .teacher_list_right span {
+            display: block;
+            margin-bottom: 15px
+        }
+
+        .c_main .left02 .left_con .con_con .teacher_list_zp {
+            height: auto;
+            padding-top: 15px;
+            margin-top: 10px;
+            border-top: 1px dashed #ddd;
+            position: relative;
+            _width: 971px
+        }
+
+        .c_main .left02 .left_con .con_con .teacher_list_zp .zp_pic {
+            width: 210px;
+            height: 137px;
+            overflow: hidden;
+            float: left;
+            margin: 0 15px;
+            _margin: 0 12px
+        }
+
+        .c_main .left02 .left_con .con_con .teacher_list_zp .zp_title {
+            position: absolute;
+            top: -15px;
+            left: 0;
+            height: 30px;
+            width: 45px;
+            background: #fff
+        }
+
+        .c_main .left02 .left_con .con_con .teacher_list_zp .zp_more {
+            position: absolute;
+            top: -15px;
+            right: 0;
+            height: 30px;
+            width: 45px;
+            background: #fff;
+            text-align: right
+        }
+
+        .c_main .left02 .left_con .con_con .teacher_list_zp .zp_more a:link {
+            color: #999;
+            font-size: 12px;
+            text-decoration: none
+        }
+
+        .c_main .left02 .left_con .con_con .teacher_list_zp .zp_more a:visited {
+            color: #999;
+            font-size: 12px;
+            text-decoration: none
+        }
+
+        .c_main .left02 .left_con .con_con .teacher_list_zp .zp_more a:active {
+            color: #999;
+            font-size: 12px;
+            text-decoration: none
+        }
+
+        .c_main .left02 .left_con .con_con .teacher_list_zp .zp_more a:hover {
+            color: #70a400;
+            font-size: 12px;
+            text-decoration: none
+        }
+
+        .ml_tuc_title02 {
+            margin: 0 30px 0 30px;
+            padding-top: 10px;
+            height: auto;
+            overflow: hidden;
+            _width: 929px
+        }
+
+        .ml_tuc_title02 a:link {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #666
+        }
+
+        .ml_tuc_title02 a:visited {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #666
+        }
+
+        .ml_tuc_title02 a:active {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #666
+        }
+
+        .ml_tuc_title02 a:hover {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #70a400
+        }
+
+        .ml_tuc_title02 dl {
+            float: right;
+            width: 80px;
+            height: 15px;
+            line-height: 18px;
+            background: url(./resource/images/ml_play.png) no-repeat left;
+            text-indent: 30px;
+            display: block;
+            color: #999;
+            font-weight: 100
+        }
+
+        .ml_tuc_title02_dl01 {
+            width: 90px!important;
+            font-size: 12px!important;
+            text-indent: 20px!important;
+            background: url(/images/xuexiend_arr04.png) no-repeat left!important
+        }
+
+        .ml_tuc_title02_dl02 {
+            width: 90px!important;
+            font-size: 12px!important;
+            text-indent: 20px!important;
+            background: url(/images/xuexiend_arr03.png) no-repeat left!important
+        }
+
+        .ml_tuc_title02 img {
+            display: none
+        }
+
+        .ml_tuc_title03 {
+            margin: 0 30px 0 30px
+        }
+
+        .ml_tuc_title03 a:link {
+            display: block;
+            font-size: 14px
+        }
+
+        .ml_tuc_title03 a:visited {
+            display: block;
+            font-size: 14px
+        }
+
+        .ml_tuc_title03 a:active {
+            display: block;
+            font-size: 14px
+        }
+
+        .ml_tuc_title03 a:hover {
+            display: block;
+            font-size: 14px
+        }
+
+        .ml_tuc_title03 dl {
+            float: right;
+            width: 80px;
+            height: 15px;
+            line-height: 15px;
+            background: url(/images/ml_play.png) no-repeat left;
+            text-indent: 30px;
+            display: block;
+            color: #999;
+            font-weight: 100;
+            margin-top: 6px;
+            _margin-top: 4px
+        }
+
+        .ml_tuc_summary {
+            padding: 0 0 10px 0;
+            font-size: 14px;
+            margin: 0 30px;
+            color: #999;
+            text-indent: 28px;
+        }
+
+        .ml_tuc_title03_dl01 {
+            width: 90px!important;
+            font-size: 12px!important;
+            text-indent: 20px!important;
+            background: url(/images/xuexiend_arr04.png) no-repeat left!important
+        }
+
+        .ml_tuc_title03_dl02 {
+            width: 90px!important;
+            font-size: 12px!important;
+            text-indent: 20px!important;
+            background: url(/images/xuexiend_arr03.png) no-repeat left!important
+        }
+
+        .ml_tuc_title03 img {
+            display: none
+        }
+
+        .ml_tuc_title03 span {
+            width: 520px
+        }
+        .video-js .vjs-big-play-button {left:45%;top:45%;}
+        /* @media (max-width: 768px) {
+            .Current_Position_01{
+                width: 100%;
+            }
+            .kcy_kuan{
+                width: 100%;
+            }
+            .c_main .left02,.c_main{
+                width: 100%;
+            }
+        } */
     </style>
+
+
 </head>
 
 <body>
     <div id="app">
-        <video controls="true" :src="url" controlslist="nodownload" autoplay="" name="media" poster="./resource/images/video_bg.png">
-            <source :src="url" type="video/mp4">
-        </video>
+            <header id="header" class="navbar brand-color navbar-inverse fixed-header-layout" role="navigation">
+                    <div class="container">
+                        <div class="col-xs-12 col-md-12" style="padding-left: 0px;padding-right: 0px;">
+                            <div class="navbar-header">
+                                <div class="col-md-2" style="width:12.5%;padding-left: 0px;">
+                                    <a class="" href="">
+                                        <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.jpg">
+                                    </a>
+                                </div>
+                                <div class="col-md-12 userinfo" style="width:80%;padding-right: 15px;">
+                                    <nav class="collapse navbar-collapse f-right">
+                                        <ul class="nav navbar-nav" style="margin-right: 0px;">
+        
+                                            <li style="margin-right: 0px;">
+                                                <a class="color-w" style="color:#fff;" v-text="userName" v-if="userName"></a>
+                                                <a class="color-w" href="login.html" v-else>登录</a>
+                                            </li>
+                                            <li style="margin-right: 0px;color:#fff;">
+                                                |
+                                            </li>
+                                            <li style="margin-right: 0px;">
+                                                <a class="color-w" href="" style="color:#fff;" @click="quit" v-if="userName">注销</a>
+                                                <a class="color-w" href="register.html" v-else>注册</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- 头部菜单start -->
+                                <div class="col-md-12" id="h_n_min" style="width:80%;">
+                                    <nav class="collapse navbar-collapse f-right animenu" style="float:right;">
+                                        <ul class="nav navbar-nav animenu__nav">
+                                            <li>
+                                                <a class="color-w link1" href="index.html">首页</a>
+                                            </li>
+        
+                                            <li>
+                                                <a class="color-w" href="javascript:void(0);">课程中心</a>
+                                                <ul class="animenu__nav__child">
+                                                    <li v-for="item in majorItems">
+                                                        <a :href="'showcoulist.html?titleType=products&menuType='+item.id" v-text="item.comnTypeName"></a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="lecturer.html">师资力量</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="tuandui.html">项目团队</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="laoshi.html">老师加盟</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="ganyan.html">学员感言</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="shixun.html">实训基地</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="platform.html">就业平台</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="about.html">关于我们</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="container-fluid i_top_xl" v-show="showMenu">
+                                    <div class="row">
+                                        <div class="col-xs-12 xl_01" id="headHtml" style="padding-bottom:15px; border-bottom:1px solid #dddddd;">
+                                            <div class="xl_01_01">
+                                                <a class="color-w" style="color:#5cb85c;" v-text="userName" v-if="userName"></a>
+                                                <a href="login.html" v-else>
+                                                    <button type="button" class="btn btn-success">登 录</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="xl_02" style="padding-top:15px; width:120px; float:left;">
+                                            <div style="width:120px; text-align:center; margin-left:5px; color:#666666;">
+                                                <strong>课程设置</strong>
+                                            </div>
+        
+                                            <div class="xl_menu_li" v-for="item in majorItems">
+                                                <a :href="'showcoulist.html?zyType='+item.id">
+                                                    <button type="button" class="btn btn-default" v-text="item.comnTypeName"></button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="xl_02" style="padding-top:15px; width:120px; float:left; margin-left:10px;">
+                                            <div style="width:120px; text-align:center; margin-left:5px; color:#666666;">
+                                                <strong>快速导航</strong>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="index.html">
+                                                    <button type="button" class="btn btn-default">网站首页</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="lecturer.html">
+                                                    <button type="button" class="btn btn-default">师资力量</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="tuandui.html">
+                                                    <button type="button" class="btn btn-default">项目团队</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="laoshi.html">
+                                                    <button type="button" class="btn btn-default">老师加盟</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="ganyan.html">
+                                                    <button type="button" class="btn btn-default">学员感言</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="shixun.html">
+                                                    <button type="button" class="btn btn-default">实训基地</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="platform.html">
+                                                    <button type="button" class="btn btn-default">就业平台</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="about.html">
+                                                    <button type="button" class="btn btn-default">关于我们</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="i_top_xl_bj" v-show="showMenu" @click="clickShowMenu">&nbsp;</div>
+                                <!-- 头部菜单end -->
+        
+        
+                                <div class="i_top_more">
+                                    <a href="javascript:void(0);" @click="clickShowMenu" id="headerLogin">
+                                        <img src="./resource/images/more_arr01.png" height="24">
+                                    </a>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+        <div id="float_im" style="height:161px;">
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=374314451&amp;site=qq&amp;menu=yes">
+                <div class="qq">
+                    <img src="./resource/images/qq.png" title="qq在线客服" alt="qq在线客服">
+                    <p>在线客服</p>
+                </div>
+            </a>
+            <div class="code">
+                <img src="./resource/images/code.jpg" title="设计空间公众号二维码" alt="设计空间微信公众号二维码">
+                <img class="b" src="./resource/images/code.jpg" title="设计空间微信公众号二维码大图" alt="设计空间微信公众号二维码大图">
+            </div>
+        </div>
+
+        <div id="shadow1" style="display:none;"></div>
+
+        <div class="mp-container">
+
+
+
+            <section class="p-layout">
+
+                <div class="kcy_banner">
+                    <div class="Current_Position_01">
+                    <div class="kcy_kuan">
+
+                        <video id="my-video" class="video-js" autoplay controls preload="auto" width="1000" height="450" poster="./resource/images/video_bg.png"
+                            data-setup="{}">
+                            <p class="vjs-no-js"> To view this video please enable JavaScript, and consider upgrading to a web browser that
+                            </p>
+                        </video>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+
+                <div class="c_main c_main02">
+
+                    <div class="left02">
+                        <div class="left_con02jia">
+
+                            <a name="m02">&nbsp;</a>
+                            <div class="left_con left_con02 kcjstop">
+                                <div class="title">
+                                    <img src="./resource/images/k_title02.gif">
+                                </div>
+                                <div class="con_con paddingg">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                        <tbody>
+
+                                            <tr v-for="item in items" onmouseout="this.bgColor='#ffffff';this.borderColor='#ffffff'" onmouseover="this.bgColor='#f4f4f4'; this.borderColor='#f4f4f4'"
+                                                bgcolor="#ffffff">
+                                                <td width="90%" align="left" valign="middle">
+                                                    <div class="ml_tuc_title02" style="position:relative;">
+                                                        <a href="javascript:void(0);" @click="play_Video(item.id)" :title="item.courseName">
+                                                            <dl>播放</dl>
+                                                            <span class="ml_tuc_title02_title" v-text="item.courseName"></span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="ml_tuc_summary">
+                                                        <p v-text="item.courseContext"></p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+
+
+        <div class="footer_bottom">
+            <div class="bottom_kuan container">
+                <div class="bottom_left col-xs-12 col-md-8">
+                    <ul>
+                        <li>咨询热线
+                            <dl>
+                                <dd>
+                                    <h3>15842815431</h3>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>如何帮到您
+                            <dl>
+                                <dd>
+                                    <a href="showcoulist.html" target="_blank">设计培训</a>
+                                </dd>
+                                <dd>
+                                    <a href="shixun.html" target="_blank">实训基地</a>
+                                </dd>
+                                <dd>
+                                    <a href="laoshi.html" target="_blank">人才招聘</a>
+                                </dd>
+                                <dd>
+                                    <a href="platform.html" target="_blank">就业平台</a>
+                                </dd>
+                                <dd>
+                                    <a href="about.html" target="_blank">关于我们</a>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>微信扫码咨询
+                            <dl>
+                                <dd>
+                                    <img src="./resource/images/code.jpg" width="100" height="100">
+                                </dd>
+
+                            </dl>
+                        </li>
+                        <li>QQ:374314451
+
+                        </li>
+                        <li style="display:none;">相关下载
+                            <dl>
+                                <dd>
+                                    <a target="_blank" href="">播放器插件下载</a>
+                                </dd>
+                            </dl>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="bottom_right col-xs-12 col-md-4">
+                    <img src="./resource/images/sjkj.png" width="200" height="200" style="margin-top:16px;">
+                </div>
+            </div>
+        </div>
+        <!--底部版权start-->
+        <footer id="footer" class="footer">
+                <div class="copyright">
+                    <div class="container">
+                        <span class="shareTo">
+                            <div class="">分享到：</div>
+                            <div @click="shareTo('qzone')">
+                                <a href="javascript:void(0);">
+                                    <img src="./resource/images/sp_qzone.png" width="30">
+                                </a>
+                            </div>
+                            <div @click="shareTo('qq')">
+                                <a href="javascript:void(0);">
+                                    <img src="./resource/images/sp_qq.png" width="32">
+                                </a>
+                            </div>
+                            <div @click="shareTo('sina')">
+                                <a href="javascript:void(0);">
+                                    <img src="./resource/images/sp_wb.png" width="36">
+                                </a>
+                            </div>
+                            <div>
+                                <a href="mailto:374314451@qq.com">
+                                    <img src="./resource/images/sp_email.png" width="36">
+                                </a>
+                            </div>
+    
+                        </span>
+                        <span class="color-999933" style="float: left;">Copyright © 2018&nbsp;映像空间&nbsp;www.yysjkj.cn&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="">湖南慧文科技有限公司</a>&nbsp;版权所有
+                            <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备18007097号-1.</a>
+                        </span>
+                    </div>
+    
+                </div>
+            </footer>
+        <!--底部版权end-->
     </div>
-</body>
-<script>
-    (function () {
-        var app = new Vue({
-            el: '#app',
-            data: {
-                restUrl: 'http://www.alaoji.com:8080/lgFace',
-                id: '',
-                url: ''
-            },
-            methods: {
-                getData: function (callback) {
-                    var me = this;
-                    var token = localStorage.getItem("sjkj_token");
-                    var param = {
-                        id: me.id
-                    };
-                    if (token) {
-                        param.token = token;
+
+    <script>
+
+        $(function () {
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    restUrl: 'http://39.106.11.92:8080/lgFace',
+                    userName: '',
+                    videoUrl: '',//视频连接
+                    vid: '',
+                    majorItems: [],//专业
+                    items: [],
+                    form: {
+                        id: '',
+                        couserLv: '',
+                        couserTypeName: '',
+                        imgBanner: '',
+                        kcType: '',
+                        kcTypeName: '',
+                        zyType: '',
+                        zyTypeName: '',
+                        bz: ''
+                    },
+                    page: 0,
+                    pageIndex: 1,
+                    totalCount: '',
+                    search: {
+                        pageIndex: 1,
+                        pageSize: 16
                     }
 
-                    $.ajax({
-                        type: "get",
-                        url: me.restUrl + "/couser/getCouserRedio",//获取列表数据
-                        dataType: "jsonp",
-                        async: false,
-                        data: param,
-                        success: function (data) {
-                            callback && callback(data);
+                },
+                methods: {
+                    getmajorItems: function () {
+                        var me = this;
+                        $.ajax({
+                            type: "get",
+                            url: me.restUrl + "/couser/getXYType",//获取列表数据
+                            dataType: "jsonp",
+                            async: false,
+                            data: {},
+                            success: function (data) {
+                                me.majorItems = data.comns;
+                            }
+                        });
+                    },
+                    getData: function (param) {
+                        var me = this;
+
+                        $.ajax({
+                            type: "get",
+                            url: me.restUrl + "/couser/getCouserTypeById",//获取列表数据
+                            dataType: "jsonp",
+                            async: false,
+                            data: { id: me.id, couserType: me.id },
+                            success: function (data) {
+                                me.form = data.couserInfo;
+                                me.items = data.couserMenuInfo;
+
+                            }
+                        });
+
+
+
+                    },
+                    getVideo: function (callback) {
+                        var me = this;
+                        var token = localStorage.getItem("sjkj_token");
+                        var param = {
+                            id: me.vid
+                        };
+                        if (token) {
+                            param.token = token;
+                        } else {
+                            return callback({ code: 102, msg: '请先登录！' })
                         }
+
+                        $.ajax({
+                            type: "get",
+                            url: me.restUrl + "/couser/getCouserRedio",//获取列表数据
+                            dataType: "jsonp",
+                            async: false,
+                            data: param,
+                            success: function (data) {
+                                callback && callback(data);
+                            }
+                        });
+                    },
+                    isIE: function () {
+                        //判断浏览器
+                        var browser = navigator.appName;
+                        if (browser == "Microsoft Internet Explorer") {
+                            var b_version = navigator.appVersion;
+                            var version = b_version.split(";");
+                            var trim_Version = version[1].replace(/[ ]/g, "");
+                            if (trim_Version == "MSIE6.0" || trim_Version == "MSIE7.0" || trim_Version == "MSIE8.0" || trim_Version == "MSIE9.0") {
+                                document.getElementById('ie').style.display = 'block';
+                                document.getElementById('shadow1').style.display = 'block';
+                            }
+                        }
+                    },
+                    play_Video: function (id) {
+                        var me = this;
+                        me.vid = id;
+                        me.getVideo(function (data) {
+                        if (data && data.code == 102) {
+                            alert(data.msg);
+                            window.location.href = "login.html";
+                        } else {
+                            me.videoUrl = data.couserInfo.courseUrl;
+                        }
+                        $(function () {
+                            setTimeout(() => {
+                                videojs("my-video", {
+                                    src: me.videoUrl,
+                                    sources: [{
+                                        src: me.videoUrl,
+                                        type: 'video/mp4'
+                                    }]
+                                }).ready(function () {
+                                    var myPlayer = this;
+                                    myPlayer.src(me.videoUrl);
+                                    myPlayer.play();
+                                })
+                            }, 1000);
+
+                        })
+
+
+
+                    });
+                    },
+                    openWin: function (url, text, winInfo) {
+                        var winObj = window.open(url, text, winInfo);
+                        var loop = setInterval(function () {
+                            if (winObj.closed) {
+                                clearInterval(loop);
+                                //alert('closed');      
+                                parent.location.reload();
+                            }
+                        }, 1);
+                    },
+                    quit: function () {
+                        localStorage.clear();
+                        location.reload();
+                    },
+                    initCode: function () {
+                        var code = document.getElementsByClassName('code');
+                        if (code && code.length > 0) {
+                            for (var a = 0; a < code.length; a++) {
+                                code[a].onmouseover = function () {
+                                    var b = this.getElementsByClassName('b');
+                                    b[0].style.display = "block ";
+                                }
+                                code[a].onmouseout = function () {
+                                    var b = this.getElementsByClassName('b');
+                                    b[0].style.display = "none ";
+                                }
+                            }
+                        }
+                    },
+                    shareTo: function (stype) {
+                        var ftit = '映像空间';
+                        var flink = '';
+                        var lk = '';
+                        //获取文章标题
+                        // ftit = $('.pctitle').text();
+                        //获取网页中内容的第一张图片
+                        // flink = $('.pcdetails img').eq(0).attr('src');
+                        // if (typeof flink == 'undefined') {
+                        //     flink = '';
+                        // }
+                        //当内容中没有图片时，设置分享图片为网站logo
+                        if (flink == '') {
+                            lk = 'http://' + window.location.host + '/resource/images/logo.jpg';
+                        }
+                        //qq空间接口的传参
+                        if (stype == 'qzone') {
+                            window.open('https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + document.location.href + '?sharesource=qzone&title=' + ftit + '&pics=' + lk + '&summary=' + document.querySelector('meta[name="description"]').getAttribute('content'));
+                        }
+                        //新浪微博接口的传参
+                        if (stype == 'sina') {
+                            window.open('http://service.weibo.com/share/share.php?url=' + document.location.href + '?sharesource=weibo&title=' + ftit + '&pic=' + lk + '&appkey=2706825840');
+                        }
+                        //qq好友接口的传参
+                        if (stype == 'qq') {
+                            window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + document.location.href + '?sharesource=qzone&title=' + ftit + '&pics=' + lk + '&summary=' + document.querySelector('meta[name="description"]').getAttribute('content') + '&desc=映像空间，一个平面设计学习的网站');
+                        }
+                        //生成二维码给微信扫描分享
+                        if (stype == 'wechat') {
+                            window.open('inc/qrcode_img.php?url=http://zixuephp.net/article-1.html');
+                        }
+                    },
+                    getRequest: function () {
+                        var url = location.search; //获取url中"?"符后的字串   
+                        var theRequest = new Object();
+                        if (url.indexOf("?") != -1) {
+                            var str = url.substr(1);
+                            strs = str.split("&");
+                            for (var i = 0; i < strs.length; i++) {
+                                theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+                            }
+                        }
+                        return theRequest;
+                    }
+                },
+                created: function () {
+                    var me = this;
+                    me.id = me.getRequest().kcid;
+                    me.vid = me.getRequest().vid;
+                    me.getVideo(function (data) {
+                        if (data && data.code == 102) {
+                            alert(data.msg);
+                            window.location.href = "login.html";
+                        } else {
+                            me.videoUrl = data.couserInfo.courseUrl;
+                        }
+                        $(function () {
+                            setTimeout(() => {
+                                videojs("my-video", {
+                                    src: me.videoUrl,
+                                    sources: [{
+                                        src: me.videoUrl,
+                                        type: 'video/mp4'
+                                    }]
+                                }).ready(function () {
+                                    var myPlayer = this;
+                                    myPlayer.src(me.videoUrl);
+                                    myPlayer.play();
+                                })
+                            }, 1000);
+
+                        })
+
+
+
                     });
                 },
-                getRequest: function () {
-                    var url = location.search; //获取url中"?"符后的字串   
-                    var theRequest = new Object();
-                    if (url.indexOf("?") != -1) {
-                        var str = url.substr(1);
-                        strs = str.split("&");
-                        for (var i = 0; i < strs.length; i++) {
-                            theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
-                        }
-                    }
-                    return theRequest;
-                }
-            },
-            mounted: function () {
-                var me = this;
-                this.id = this.getRequest().id;
-                this.getData(function (data) {
-                    if (data && data.code == 102) {
-                        alert(data.msg);
-                        window.location.href = "login.html";
-                    } else {
-                        me.url = data.couserInfo.courseUrl;
-                    }
+                mounted: function () {
+                    var me = this;
+                    me.id = me.getRequest().kcid;
+                    me.vid = me.getRequest().vid;
+                    me.userName = localStorage.getItem("userName");
+                    me.isIE();
+                    me.initCode();
+                    me.getmajorItems();
+                    me.getData();
 
-                });
-            }
+
+
+                }
+            });
         });
-    })();
-</script>
+
+
+    </script>
+
+
+</body>
 
 </html>

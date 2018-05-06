@@ -165,17 +165,16 @@ canvas{
 
  @media screen and (min-width: 1200px) {
   .shizhan-header-nav1 .c-s-dl-li .clearfix{
-    height: 40px;
+    /* height: 40px; */
   }
 	.shizhan-header-nav1 {
     background: #f7f8fa;
     box-shadow: 0 8px 16px 0 rgba(28, 31, 33, 0.1);
-    padding: 16px 0;
+    padding: 16px 0 5px 0;
     box-sizing: border-box;
   }
   .shizhan-header-nav1 > div {
-    width: 1152px;
-    padding-left: 12px;
+    width: 1240px;
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;

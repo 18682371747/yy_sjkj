@@ -71,88 +71,155 @@
 <body>
     <div id="app">
 
-
-        <header id="header" class="navbar brand-color navbar-inverse fixed-header-layout" role="navigation">
-            <div class="container">
-                <div class="col-xs-12 col-md-12" style="padding-left: 0px;padding-right: 0px;">
-                    <div class="navbar-header">
-                        <div class="col-md-2" style="width:12.5%;padding-left: 0px;">
-                            <a class="" href="">
-                                <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.jpg">
-                            </a>
-                        </div>
-                        <div class="col-md-12 userinfo" style="width:80%;padding-right: 15px;">
-                            <nav class="collapse navbar-collapse f-right">
-                                <ul class="nav navbar-nav" style="margin-right: 0px;">
-
-                                    <li style="margin-right: 0px;">
-                                        <a class="color-w" style="color:#fff;" v-text="userName" v-if="userName"></a>
-                                        <a class="color-w" href="login.html" v-else>登录</a>
-                                    </li>
-                                    <li style="margin-right: 0px;color:#fff;">
-                                        |
-                                    </li>
-                                    <li style="margin-right: 0px;">
-                                        <a class="color-w" href="" style="color:#fff;" @click="quit" v-if="userName">注销</a>
-                                        <a class="color-w" href="register.html" v-else>注册</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <!-- 头部菜单start -->
-                        <div class="col-md-12" id="h_n_min" style="width:80%;">
-                            <nav class="collapse navbar-collapse f-right animenu" style="float:right;">
-                                <ul class="nav navbar-nav animenu__nav">
-                                    <li>
-                                        <a class="color-w link1" href="index.html">首页</a>
-                                    </li>
-
-                                    <li>
-                                        <a class="color-w" href="showcoulist.html">课程中心</a>
-                                        <ul class="animenu__nav__child">
-                                            <li v-for="item in majorItems">
-                                                <a :href="'showcoulist.html?titleType=products&menuType='+item.id" v-text="item.comnTypeName"></a>
+            <header id="header" class="navbar brand-color navbar-inverse fixed-header-layout" role="navigation">
+                    <div class="container">
+                        <div class="col-xs-12 col-md-12" style="padding-left: 0px;padding-right: 0px;">
+                            <div class="navbar-header">
+                                <div class="col-md-2" style="width:12.5%;padding-left: 0px;">
+                                    <a class="" href="">
+                                        <img class="logo logo-visible v-middle" width="120" src="./resource/images/logo.jpg">
+                                    </a>
+                                </div>
+                                <div class="col-md-12 userinfo" style="width:80%;padding-right: 15px;">
+                                    <nav class="collapse navbar-collapse f-right">
+                                        <ul class="nav navbar-nav" style="margin-right: 0px;">
+        
+                                            <li style="margin-right: 0px;">
+                                                <a class="color-w" style="color:#fff;" v-text="userName" v-if="userName"></a>
+                                                <a class="color-w" href="login.html" v-else>登录</a>
+                                            </li>
+                                            <li style="margin-right: 0px;color:#fff;">
+                                                |
+                                            </li>
+                                            <li style="margin-right: 0px;">
+                                                <a class="color-w" href="" style="color:#fff;" @click="quit" v-if="userName">注销</a>
+                                                <a class="color-w" href="register.html" v-else>注册</a>
                                             </li>
                                         </ul>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="lecturer.html">师资力量</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="tuandui.html">项目团队</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="laoshi.html">老师加盟</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="ganyan.html">学员感言</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="shixun.html">实训基地</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="platform.html">就业平台</a>
-                                    </li>
-                                    <li>
-                                        <a class="color-w" href="about.html">关于我们</a>
-                                    </li>
-                                </ul>
-                            </nav>
+                                    </nav>
+                                </div>
+                                <!-- 头部菜单start -->
+                                <div class="col-md-12" id="h_n_min" style="width:80%;">
+                                    <nav class="collapse navbar-collapse f-right animenu" style="float:right;">
+                                        <ul class="nav navbar-nav animenu__nav">
+                                            <li>
+                                                <a class="color-w link1" href="index.html">首页</a>
+                                            </li>
+        
+                                            <li>
+                                                <a class="color-w" href="javascript:void(0);">课程中心</a>
+                                                <ul class="animenu__nav__child">
+                                                    <li v-for="item in majorItems">
+                                                        <a :href="'showcoulist.html?titleType=products&menuType='+item.id" v-text="item.comnTypeName"></a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="lecturer.html">师资力量</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="tuandui.html">项目团队</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="laoshi.html">老师加盟</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="ganyan.html">学员感言</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="shixun.html">实训基地</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="platform.html">就业平台</a>
+                                            </li>
+                                            <li>
+                                                <a class="color-w" href="about.html">关于我们</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="container-fluid i_top_xl" v-show="showMenu">
+                                    <div class="row">
+                                        <div class="col-xs-12 xl_01" id="headHtml" style="padding-bottom:15px; border-bottom:1px solid #dddddd;">
+                                            <div class="xl_01_01">
+                                                <a class="color-w" style="color:#5cb85c;" v-text="userName" v-if="userName"></a>
+                                                <a href="login.html" v-else>
+                                                    <button type="button" class="btn btn-success">登 录</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="xl_02" style="padding-top:15px; width:120px; float:left;">
+                                            <div style="width:120px; text-align:center; margin-left:5px; color:#666666;">
+                                                <strong>课程设置</strong>
+                                            </div>
+        
+                                            <div class="xl_menu_li" v-for="item in majorItems">
+                                                <a :href="'showcoulist.html?zyType='+item.id">
+                                                    <button type="button" class="btn btn-default" v-text="item.comnTypeName"></button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="xl_02" style="padding-top:15px; width:120px; float:left; margin-left:10px;">
+                                            <div style="width:120px; text-align:center; margin-left:5px; color:#666666;">
+                                                <strong>快速导航</strong>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="index.html">
+                                                    <button type="button" class="btn btn-default">网站首页</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="lecturer.html">
+                                                    <button type="button" class="btn btn-default">师资力量</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="tuandui.html">
+                                                    <button type="button" class="btn btn-default">项目团队</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="laoshi.html">
+                                                    <button type="button" class="btn btn-default">老师加盟</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="ganyan.html">
+                                                    <button type="button" class="btn btn-default">学员感言</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="shixun.html">
+                                                    <button type="button" class="btn btn-default">实训基地</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="platform.html">
+                                                    <button type="button" class="btn btn-default">就业平台</button>
+                                                </a>
+                                            </div>
+                                            <div class="xl_menu_li">
+                                                <a href="about.html">
+                                                    <button type="button" class="btn btn-default">关于我们</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="i_top_xl_bj" v-show="showMenu" @click="clickShowMenu">&nbsp;</div>
+                                <!-- 头部菜单end -->
+        
+        
+                                <div class="i_top_more">
+                                    <a href="javascript:void(0);" @click="clickShowMenu" id="headerLogin">
+                                        <img src="./resource/images/more_arr01.png" height="24">
+                                    </a>
+                                </div>
+        
+                            </div>
                         </div>
-                        <!-- 头部菜单end -->
-
-
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
                     </div>
-                </div>
-            </div>
-        </header>
+                </header>
         <section>
             <div id="float_im" style="height:161px;">
                 <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=374314451&amp;site=qq&amp;menu=yes">
@@ -357,40 +424,40 @@
         </div>
         <!--底部版权start-->
         <footer id="footer" class="footer">
-            <div class="copyright">
-                <div class="container">
-                    <span class="shareTo">
-                        <div class="fl">分享到：</div>
-                        <div @click="shareTo('qzone')">
-                            <a href="javascript:void(0);">
-                                <img src="./resource/images/sp_qzone.png" width="30">
-                            </a>
-                        </div>
-                        <div @click="shareTo('qq')">
-                            <a href="javascript:void(0);">
-                                <img src="./resource/images/sp_qq.png" width="32">
-                            </a>
-                        </div>
-                        <div @click="shareTo('sina')">
-                            <a href="javascript:void(0);">
-                                <img src="./resource/images/sp_wb.png" width="36">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="mailto:374314451@qq.com">
-                                <img src="./resource/images/sp_email.png" width="36">
-                            </a>
-                        </div>
-
-                    </span>
-                    <span class="color-999933">Copyright © 2018&nbsp;映像空间&nbsp;www.yysjkj.cn&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="">湖南慧文科技有限公司</a>&nbsp;版权所有
-                        <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备18007097号-1.</a>
-                    </span>
+                <div class="copyright">
+                    <div class="container">
+                        <span class="shareTo">
+                            <div class="">分享到：</div>
+                            <div @click="shareTo('qzone')">
+                                <a href="javascript:void(0);">
+                                    <img src="./resource/images/sp_qzone.png" width="30">
+                                </a>
+                            </div>
+                            <div @click="shareTo('qq')">
+                                <a href="javascript:void(0);">
+                                    <img src="./resource/images/sp_qq.png" width="32">
+                                </a>
+                            </div>
+                            <div @click="shareTo('sina')">
+                                <a href="javascript:void(0);">
+                                    <img src="./resource/images/sp_wb.png" width="36">
+                                </a>
+                            </div>
+                            <div>
+                                <a href="mailto:374314451@qq.com">
+                                    <img src="./resource/images/sp_email.png" width="36">
+                                </a>
+                            </div>
+    
+                        </span>
+                        <span class="color-999933" style="float: left;">Copyright © 2018&nbsp;映像空间&nbsp;www.yysjkj.cn&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="">湖南慧文科技有限公司</a>&nbsp;版权所有
+                            <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备18007097号-1.</a>
+                        </span>
+                    </div>
+    
                 </div>
-
-            </div>
-        </footer>
+            </footer>
         <!--底部版权end-->
     </div>
     <script>
@@ -399,8 +466,9 @@
             var app = new Vue({
                 el: '#app',
                 data: {
-                    restUrl: 'http://39.106.11.92:8002/lgFace',
+                    restUrl: 'http://39.106.11.92:8080/lgFace',
                     userName: '',
+                    showMenu: false,
                     majorItems:[],//专业
                     form: {
                         major: '',
@@ -416,6 +484,9 @@
                     }
                 },
                 methods: {
+                    clickShowMenu: function () {
+                        this.showMenu = !this.showMenu;
+                    },
                     getmajorItems: function () {
                         var me = this;
                         $.ajax({

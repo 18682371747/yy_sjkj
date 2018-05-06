@@ -119,7 +119,7 @@
         .comm-title {
             overflow: hidden;
             clear: both;
-            margin: 40px 0 5px;
+            margin: 20px 0 5px;
         }
 
         .tac {
@@ -141,6 +141,10 @@
             line-height: 30px
         }
 
+        .c-s-dl1 dl {
+            border-bottom: 0;
+        }
+
         .c-s-dl dl dt {
             float: left;
             width: 75px;
@@ -150,7 +154,8 @@
 
         .c-s-dl dl {
             position: relative;
-            padding: 15px 60px 0 0
+            padding: 5px 0 15px 0;
+            margin-bottom: 10px;
         }
 
 
@@ -160,15 +165,18 @@
 
         .c-s-dl-li ul li {
             float: left;
-            margin: 0 15px 9px 0;
-            width: 10%;
+            margin: 0 2px 2px 0;
+            width: 16.5%;
             text-align: center;
             background: #666666;
+            height: 30px;
+            line-height: 30px;
         }
+
         .c-s-dl-li ul li.current {
             float: left;
-            margin: 0 15px 9px 0;
-            width: 10%;
+            margin: 0 2px 2px 0;
+            width: 16.5%;
             text-align: center;
             background: #000066;
         }
@@ -294,7 +302,7 @@
                                     </li>
 
                                     <li>
-                                        <a class="color-w" href="showcoulist.html">课程中心</a>
+                                        <a class="color-w" href="javascript:void(0);">课程中心</a>
                                         <ul class="animenu__nav__child">
                                             <li v-for="item in majorItems">
                                                 <a :href="'showcoulist.html?titleType=products&menuType='+item.id" v-text="item.comnTypeName"></a>
@@ -325,15 +333,83 @@
                                 </ul>
                             </nav>
                         </div>
+                        <div class="container-fluid i_top_xl" v-show="showMenu">
+                            <div class="row">
+                                <div class="col-xs-12 xl_01" id="headHtml" style="padding-bottom:15px; border-bottom:1px solid #dddddd;">
+                                    <div class="xl_01_01">
+                                        <a class="color-w" style="color:#5cb85c;" v-text="userName" v-if="userName"></a>
+                                        <a href="login.html" v-else>
+                                            <button type="button" class="btn btn-success">登 录</button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="xl_02" style="padding-top:15px; width:120px; float:left;">
+                                    <div style="width:120px; text-align:center; margin-left:5px; color:#666666;">
+                                        <strong>课程设置</strong>
+                                    </div>
+
+                                    <div class="xl_menu_li" v-for="item in majorItems">
+                                        <a :href="'showcoulist.html?zyType='+item.id">
+                                            <button type="button" class="btn btn-default" v-text="item.comnTypeName"></button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="xl_02" style="padding-top:15px; width:120px; float:left; margin-left:10px;">
+                                    <div style="width:120px; text-align:center; margin-left:5px; color:#666666;">
+                                        <strong>快速导航</strong>
+                                    </div>
+                                    <div class="xl_menu_li">
+                                        <a href="index.html">
+                                            <button type="button" class="btn btn-default">网站首页</button>
+                                        </a>
+                                    </div>
+                                    <div class="xl_menu_li">
+                                        <a href="lecturer.html">
+                                            <button type="button" class="btn btn-default">师资力量</button>
+                                        </a>
+                                    </div>
+                                    <div class="xl_menu_li">
+                                        <a href="tuandui.html">
+                                            <button type="button" class="btn btn-default">项目团队</button>
+                                        </a>
+                                    </div>
+                                    <div class="xl_menu_li">
+                                        <a href="laoshi.html">
+                                            <button type="button" class="btn btn-default">老师加盟</button>
+                                        </a>
+                                    </div>
+                                    <div class="xl_menu_li">
+                                        <a href="ganyan.html">
+                                            <button type="button" class="btn btn-default">学员感言</button>
+                                        </a>
+                                    </div>
+                                    <div class="xl_menu_li">
+                                        <a href="shixun.html">
+                                            <button type="button" class="btn btn-default">实训基地</button>
+                                        </a>
+                                    </div>
+                                    <div class="xl_menu_li">
+                                        <a href="platform.html">
+                                            <button type="button" class="btn btn-default">就业平台</button>
+                                        </a>
+                                    </div>
+                                    <div class="xl_menu_li">
+                                        <a href="about.html">
+                                            <button type="button" class="btn btn-default">关于我们</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="i_top_xl_bj" v-show="showMenu" @click="clickShowMenu">&nbsp;</div>
                         <!-- 头部菜单end -->
 
 
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="top: -52px;">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+                        <div class="i_top_more">
+                            <a href="javascript:void(0);" @click="clickShowMenu" id="headerLogin">
+                                <img src="./resource/images/more_arr01.png" height="24">
+                            </a>
+                        </div>
 
                     </div>
                 </div>
@@ -378,7 +454,7 @@
                             </h3>
                         </header>
                         <section class="c-sort-box">
-                            <section class="c-s-dl">
+                            <section class="c-s-dl1">
                                 <dl>
                                     <dd class="c-s-dl-li">
                                         <ul class="clearfix">
@@ -386,45 +462,40 @@
                                                 <a href="javascript:void(0)">全部</a>
                                             </li>
                                             <li v-for="item in couserTypeItems" @click="getData({courseType:item.id})" :class="selectCourseType == item.id ? 'current' : ''">
-                                                <a href="javascript:void(0)" v-text="item.comnValue"></a>
+                                                <a href="javascript:void(0)" v-text="item.comnTypeName"></a>
                                             </li>
 
                                         </ul>
 
                                     </dd>
                                 </dl>
-                                <!-- <dl>
-                                    <dt>
-                                        <span class="c-999 fsize14">按讲师</span>
-                                    </dt>
-                                    <dd class="c-s-dl-li">
-                                        <ul class="clearfix">
-                                            <li @click="getData({courseTeacher:'ALL'})" :class="selectCourseTeacher == '' ? 'current' : ''">
-                                                <a href="javascript:void(0)">全部</a>
-                                            </li>
-                                            <li v-for="item in couserTeacherItems" @click="getData({courseTeacher:item.id})" :class="selectCourseTeacher == item.id ? 'current' : ''">
-                                                <a href="javascript:void(0)" v-text="item.teacherName"></a>
-                                            </li>
-                                        </ul>
-                                        <aside class="c-s-more">
-                                            <a href="javascript: void(0)" title="" class="fsize14 c-master" style="display: none;">[展开]</a>
-                                        </aside>
-                                    </dd>
-                                </dl> -->
+                                <div class="clear"></div>
+                            </section>
+
+                        </section>
+                    </div>
+                    <div class="clearfix">
+                        <header class="comm-title">
+                            <h3 class="fl tac">
+                                <span class="c-333">教程等级</span>
+                            </h3>
+                        </header>
+                        <section class="c-sort-box">
+                            <section class="c-s-dl">
                                 <dl>
-                                    <dt>
-                                        <span class="c-999 fsize14">按类型</span>
-                                    </dt>
                                     <dd class="c-s-dl-li">
                                         <ul class="clearfix">
-                                            <li @click="getData({isCharge:'ALL'})" :class="selectIsCharge == '' ? 'current' : ''">
+                                            <li @click="getData({couserLv:'ALL'})" :class="selectIcouseLv == '' ? 'current' : ''">
                                                 <a href="javascript:void(0)">全部</a>
                                             </li>
-                                            <li @click="getData({isCharge:'2'})" :class="selectIsCharge == '2' ? 'current' : ''">
-                                                <a href="javascript:void(0)">免费</a>
+                                            <li @click="getData({couserLv:'基础入门'})" :class="selectIcouseLv == '基础入门' ? 'current' : ''">
+                                                <a href="javascript:void(0)">基础入门</a>
                                             </li>
-                                            <li @click="getData({isCharge:'1'})" :class="selectIsCharge == '1' ? 'current' : ''">
-                                                <a href="javascript:void(0)">会员</a>
+                                            <li @click="getData({couserLv:'中级提高'})" :class="selectIcouseLv == '中级提高' ? 'current' : ''">
+                                                <a href="javascript:void(0)">中级提高</a>
+                                            </li>
+                                            <li @click="getData({couserLv:'高级拓展'})" :class="selectIcouseLv == '高级拓展' ? 'current' : ''">
+                                                <a href="javascript:void(0)">高级拓展</a>
                                             </li>
                                         </ul>
                                         <aside class="c-s-more">
@@ -442,30 +513,26 @@
 
 
             <section class="p-layout">
-                <div class="container">
-                    <div class="col-lg-12">
-                        <h1 class="page-title" style="padding: 20px 0;font-size: 22px;letter-spacing:0.5px;font-weight: 600;"></h1>
-                    </div>
-                </div>
+
                 <div class="container price-table-container row row-nt" style="padding-bottom: 50px;">
                     <div class="col-xs-12 col-md-4 col-lg-3 col-adm" v-for="item in items">
-                        <div class="i-wrap align-center pack clearfix" style="background: #fff;">
-                            <img :src="item.courseImg" class="img-responsive" style="width:100%;height: 200px;" :alt="item.courseName" :title="item.courseName">
+                        <div class="i-wrap align-center pack clearfix" style="background: #000066;">
+                            <img :src="item.imgBanner" class="img-responsive" style="width:100%;height: 200px;" :alt="item.couserTypeName" :title="item.courseName">
                             <div style="position: relative;top:-6px;">
-                                <div class="pt-features" style="padding-top: 15px;padding-bottom: 11px;">
+                                <div class="pt-features">
                                     <ul>
                                         <li>
-                                            <strong v-text="item.courseName"></strong>
+                                            <strong v-text="item.couserTypeName"></strong>
                                         </li>
                                         <li class="a">
-                                            <span v-text="item.visNum+'浏览'"></span>
-                                            <span :class="item.isCharge=='2' ? 'ismfcolor-mianfei' : 'ismfcolor-huiyuan'" v-text="item.isCharge=='2' ? '免费' : '会员'"></span>
+
+                                            <span v-text="'课级：'+item.couserLv"></span>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="cc-mask">
-                                <a :href="'showVideo.html?id='+item.id" target="_blank" title="" class="comm-btn c-btn-1">开始学习</a>
+                                <a :href="'showMenu.html?kcid='+item.id" target="_blank" title="" class="comm-btn c-btn-1">开始学习</a>
                             </div>
                         </div>
                     </div>
@@ -481,8 +548,6 @@
             </section>
 
         </div>
-
-
 
         <div class="footer_bottom">
             <div class="bottom_kuan container">
@@ -568,7 +633,7 @@
                         </div>
 
                     </span>
-                    <span class="color-999933">Copyright © 2018&nbsp;映像空间&nbsp;www.yysjkj.cn&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="color-999933" style="float: left;">Copyright © 2018&nbsp;映像空间&nbsp;www.yysjkj.cn&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="">湖南慧文科技有限公司</a>&nbsp;版权所有
                         <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备18007097号-1.</a>
                     </span>
@@ -586,13 +651,15 @@
                 el: '#app',
                 data: {
                     restUrl: 'http://39.106.11.92:8080/lgFace',
+                    zyType: '',
                     userName: '',
+                    showMenu: false,
                     selectCourseTeacher: '',
-                    selectIsCharge: '',
+                    selectIcouseLv: '',
                     selectCourseType: '',
                     couserTypeItems: [],
                     couserTeacherItems: [],
-                    majorItems: [],//专业
+                    majorItems: [],//教程分类
                     items: [],
                     page: 0,
                     pageIndex: 1,
@@ -604,6 +671,9 @@
 
                 },
                 methods: {
+                    clickShowMenu: function () {
+                        this.showMenu = !this.showMenu;
+                    },
                     getmajorItems: function () {
                         var me = this;
                         $.ajax({
@@ -621,7 +691,7 @@
                         var me = this;
                         $.ajax({
                             type: "get",
-                            url: me.restUrl + "/comn/getCouserType",//获取列表数据
+                            url: me.restUrl + "/couser/getCouserType",//获取列表数据
                             dataType: "jsonp",
                             async: false,
                             data: {},
@@ -646,40 +716,26 @@
                     getData: function (param) {
                         var me = this;
                         if (param) {
-                            if (param.isCharge) {
-                                param.isCharge == 'ALL' ? me.selectIsCharge = '' : me.selectIsCharge = param.isCharge;
-                                param.isCharge == 'ALL' ? '' : me.search.isCharge = param.isCharge;
-                            } else if (param.courseTeacher) {
-                                param.courseTeacher == 'ALL' ? me.selectCourseTeacher = '' : me.selectCourseTeacher = param.courseTeacher;
-                                param.courseTeacher == 'ALL' ? '' : me.search.courseTeacher = param.courseTeacher;
+                            if (param.couserLv) {
+                                param.couserLv == 'ALL' ? me.selectIcouseLv = '' : me.selectIcouseLv = param.couserLv;
+                                param.couserLv == 'ALL' ? delete me.search.couserLv : me.search.couserLv = param.couserLv;
                             } else if (param.courseType) {
                                 param.courseType == 'ALL' ? me.selectCourseType = '' : me.selectCourseType = param.courseType;
-                                param.courseType == 'ALL' ? '' : me.search.courseType = param.courseType;
+                                param.courseType == 'ALL' ? delete me.search.kcType : me.search.kcType = param.courseType;
                             }
                         }
                         me.search.pageIndex = me.pageIndex;
                         me.search.pageSize = 16;
+                        me.search.zyType = me.zyType;
                         $.ajax({
                             type: "get",
-                            url: me.restUrl + "/couser/getCouserMessage",//获取列表数据
+                            url: me.restUrl + "/couser/getCouserTypeList",//获取列表数据
                             dataType: "jsonp",
                             async: false,
                             data: me.search,
                             success: function (data) {
-                                data.couserInfo.map(function (x) {
-                                    if (x.courseTypeName == '室内设计') {
-                                        x.courseImg = './resource/images/t_snsj.png';
-                                    } else if (x.courseTypeName == '平面设计') {
-                                        x.courseImg = './resource/images/t_pmsj.png';
-                                    } else if (x.courseTypeName == '园林景观') {
-                                        x.courseImg = './resource/images/t_jzjg.png';
-                                    } else if (x.courseTypeName == '建筑表现') {
-                                        x.courseImg = './resource/images/t_jzjg.png';
-                                    } else if (x.courseTypeName == '影视后期') {
-                                        x.courseImg = './resource/images/t_yshq.png';
-                                    }
-                                })
-                                me.items = data.couserInfo;
+
+                                me.items = data.CouserTypeInfo;
                                 me.totalCount = data.totalCount;
                                 me.page = Math.ceil(me.totalCount / 16);
                                 me.initPage();//初始化分页组件
@@ -775,9 +831,22 @@
                         if (stype == 'wechat') {
                             window.open('inc/qrcode_img.php?url=http://zixuephp.net/article-1.html');
                         }
+                    },
+                    getRequest: function () {
+                        var url = location.search; //获取url中"?"符后的字串   
+                        var theRequest = new Object();
+                        if (url.indexOf("?") != -1) {
+                            var str = url.substr(1);
+                            strs = str.split("&");
+                            for (var i = 0; i < strs.length; i++) {
+                                theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+                            }
+                        }
+                        return theRequest;
                     }
                 },
                 mounted: function () {
+                    this.zyType = this.getRequest().zyType;
                     this.isIE();
                     this.initCode();
                     this.getmajorItems();

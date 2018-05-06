@@ -1089,6 +1089,10 @@ h3,
 .address{
     width:800px;
 }
+.i_top_more {
+    
+    display: none;
+}
 @media (max-width: 768px)  {
     .section-image-bar {
         margin-bottom: -60px;
@@ -1255,6 +1259,62 @@ h3,
     .features-section {
         padding-bottom: 10px;
     }
+    .i_top_more {
+        width: 34px;
+        height: auto;
+        padding-top: 13px;
+        padding-right: 10px;
+        float: right;
+        top: -60px !important;
+        right: 3px;
+        position: relative;
+        display: block;
+    }
+    .i_top_xl {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        overflow-y: auto;
+        left: 0;
+        background: #eeeeee;
+        width: 280px;
+        text-align: left;
+        z-index: 1002;
+        padding: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .i_top_xl .xl_01 {
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    .i_top_xl .xl_02 {
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-bottom: 50px;
+    }
+    .i_top_xl .xl_01 .xl_01_01 {
+        /* float: right; */
+        margin-right: 10px;
+    }
+    .xl_menu_li {
+        padding: 5px;
+        width: 120px;
+    }
+    .i_top_xl_bj {
+        background: url(../images/kefu_qq_bj.png) no-repeat;
+        background-size: 100% 100%;
+        opacity: 0.6;
+        filter: alpha(opacity=60);
+        z-index: 1001;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0px;
+    }
     .price-table-container {
         padding-top: 0px;
     }
@@ -1290,6 +1350,7 @@ h3,
         width: 100% !important;
         padding: 0px !important;
         margin-top: 0px;
+        display: none;
     }
     #h_n_min .navbar-collapse{
         background: #fff;
@@ -1313,6 +1374,13 @@ h3,
         padding-left: 25px;
         line-height: 30px;
     }
+    .Current_Position_01,.kcy_kuan{
+        width: 99%!important;
+        height:150px!important;
+    }
+    .c_main{
+        width: 99%!important;
+    }
 
     #header .col-md-3 {
         width: 100% !important;
@@ -1321,6 +1389,7 @@ h3,
     #header .userinfo{
         display: none;
     }
+
     #header .col-md-3 .navbar-collapse{
         background: #ffffff !important;
         margin-top: 0px;
@@ -1384,7 +1453,7 @@ h3,
         display: none;
     }
     
-
+    .c-s-dl-li ul li{width: 170px !important;margin: 5px 8px !important;}
 
    
 
